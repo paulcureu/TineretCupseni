@@ -49,8 +49,8 @@ export function SiteFooter() {
       <div className="container site-footer__bottom">
         <span>© 2026 {site.nume} · Ocrotiți de Șatra lui Pintea</span>
         <span>{site.locatie}</span>
-        <span className="site-footer__autor">
-          Făcut cu <span className="site-footer__inima" role="img" aria-label="drag">♥</span> de{" "}
+        <span className="site-footer__autor" lang="en">
+          Made with <span role="img" aria-label="love">❤️</span> by{" "}
           <a href={site.autor.instagram} target="_blank" rel="noopener noreferrer">
             {site.autor.nume}
           </a>

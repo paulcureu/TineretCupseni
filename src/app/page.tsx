@@ -108,7 +108,7 @@ export default function AcasaPage() {
               <div className="hero__ring" aria-hidden="true" />
               <Image
                 src="/foto/grup/grupul-de-initiativa.jpg"
-                alt="Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara lui Pintea"
+                alt="Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara Li Pintea"
                 width={2000}
                 height={1126}
                 loading="eager"
@@ -122,7 +122,7 @@ export default function AcasaPage() {
                 </span>
                 <span>
                   <strong>Grupul de inițiativă</strong>
-                  <small>Pensiunea Țara lui Pintea</small>
+                  <small>Pensiunea Țara Li Pintea</small>
                 </span>
               </div>
             </div>

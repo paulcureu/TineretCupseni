@@ -1,7 +1,7 @@
 import { activitati } from "@/data/activitati";
 import { imagineOG, MARIME_OG, TIP_OG } from "@/lib/og";
 
-export const alt = "Tineret Cupșeni: grupul de inițiativă al tinerilor din comuna Cupșeni, la Pensiunea Țara lui Pintea";
+export const alt = "Tineret Cupșeni: grupul de inițiativă al tinerilor din comuna Cupșeni, la Pensiunea Țara Li Pintea";
 export const size = MARIME_OG;
 export const contentType = TIP_OG;
 

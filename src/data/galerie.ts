@@ -26,9 +26,9 @@ const orizontal = (src: string, alt: string): Foto => ({ src, alt, w: 1600, h: 9
 const lat = (src: string, alt: string): Foto => ({ src, alt, w: 1440, h: 810 });
 const inalt = (src: string, alt: string): Foto => ({ src, alt, w: 810, h: 1440 });
 
-// Prima întâlnire a grupului de inițiativă — Pensiunea Țara lui Pintea, Cupșeni.
+// Prima întâlnire a grupului de inițiativă — Pensiunea Țara Li Pintea, Cupșeni.
 const fotoGrup: Foto[] = [
-  { src: "/foto/grup/grupul-de-initiativa.jpg", alt: "Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara lui Pintea", w: 2000, h: 1126 },
+  { src: "/foto/grup/grupul-de-initiativa.jpg", alt: "Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara Li Pintea", w: 2000, h: 1126 },
   { src: "/foto/grup/grup-01.jpg", alt: "Grupul de inițiativă în jurul mesei, sub costumele populare de pe perete", w: 975, h: 549 },
   { src: "/foto/grup/grup-02.jpg", alt: "Discuții la masă, în curtea pensiunii", w: 975, h: 549 },
   lat("/foto/grup/grup-03.jpg", "Planificăm împreună, la masa din curte"),
@@ -120,9 +120,9 @@ export const albume: Album[] = [
   {
     slug: "grupul-de-initiativa",
     titlu: "Prima întâlnire a grupului de inițiativă",
-    loc: "Pensiunea Țara lui Pintea, Cupșeni",
+    loc: "Pensiunea Țara Li Pintea, Cupșeni",
     eveniment: true,
-    descriere: "Prima noastră întâlnire ca grup de inițiativă, la Pensiunea Țara lui Pintea din Cupșeni.",
+    descriere: "Prima noastră întâlnire ca grup de inițiativă, la Pensiunea Țara Li Pintea din Cupșeni.",
     coperta: fotoGrup[0],
     foto: fotoGrup,
     activitate: "intalnirea-lunara",

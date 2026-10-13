@@ -308,8 +308,8 @@ export const activitati: Activitate[] = [
     editii: [
       {
         titlu: "Prima întâlnire a grupului de inițiativă",
-        data: "Pensiunea Țara lui Pintea, Cupșeni",
-        text: "Prima noastră întâlnire ca grup de inițiativă, la Pensiunea Țara lui Pintea din Cupșeni.",
+        data: "Pensiunea Țara Li Pintea, Cupșeni",
+        text: "Prima noastră întâlnire ca grup de inițiativă, la Pensiunea Țara Li Pintea din Cupșeni.",
         album: "grupul-de-initiativa",
       },
     ],

@@ -734,10 +734,6 @@ button {
   color: var(--sun);
 }
 
-.site-footer__inima {
-  color: var(--sun);
-}
-
 .logo-card {
   display: flex;
   flex-wrap: wrap;

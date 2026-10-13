@@ -54,7 +54,7 @@ export const parteneri: { nume: string; contributie?: string }[] = [
   },
   { nume: "Podina Resort" },
   {
-    nume: "Pensiunea Țara lui Pintea",
+    nume: "Pensiunea Țara Li Pintea",
     contributie: "Ne-a găzduit la prima întâlnire a grupului de inițiativă.",
   },
 ];
