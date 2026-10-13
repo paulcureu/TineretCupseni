@@ -38,6 +38,12 @@ export function VolunteerForm() {
         <p className="muted">Durează un minut. Câmpurile cu * sunt obligatorii.</p>
       </div>
 
+      {/* Capcană pentru roboți: ascunsă vizual și pentru cititoarele de ecran. */}
+      <div className="visually-hidden" aria-hidden="true">
+        <label htmlFor="website">Nu completa acest câmp</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {stare.stare === "eroare" ? (
         <div className="form-alert" role="alert" tabIndex={-1} ref={mesajRef}>
           {stare.mesaj}
@@ -70,8 +76,8 @@ export function VolunteerForm() {
           </select>
         </div>
         <div className="field field--grow">
-          <label htmlFor="contact">Telefon sau Instagram *</label>
-          <input id="contact" name="contact" type="text" placeholder="07xx xxx xxx sau @utilizator" defaultValue={v.contact} aria-invalid={!!stare.erori?.contact} aria-describedby={stare.erori?.contact ? "contact-eroare" : undefined} />
+          <label htmlFor="contact">Telefon, Instagram sau e-mail *</label>
+          <input id="contact" name="contact" type="text" placeholder="07xx xxx xxx, @utilizator sau e-mail" defaultValue={v.contact} aria-invalid={!!stare.erori?.contact} aria-describedby={stare.erori?.contact ? "contact-eroare" : undefined} />
           {stare.erori?.contact ? <span id="contact-eroare" className="field__error">{stare.erori.contact}</span> : null}
         </div>
       </div>

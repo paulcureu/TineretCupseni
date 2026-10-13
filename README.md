@@ -43,12 +43,17 @@ Textele între paranteze drepte `[ ]` apar pe site așa cum sunt, ca să nu fie 
 - povestea grupului (`src/app/despre/page.tsx`);
 - descrierea programului, datele etapelor și linkul de vot, dacă există (`src/app/sat-european-2027/page.tsx`).
 
-## Formularul de voluntariat
+## Formulare și e-mail (Resend)
 
-Formularul folosește un Server Action (`src/app/implica-te/actions.ts`). Înscrierile sunt trimise prin `src/lib/inscrieri.ts` la adresa din variabila de mediu `INSCRIERI_WEBHOOK_URL` (copiați `.env.example` în `.env.local`).
+Formularele trimit conținutul pe e-mail prin [Resend](https://resend.com), din `src/lib/email.ts` (`trimiteFormular`). Formularul de voluntariat (`src/app/implica-te/actions.ts`) îl folosește deja; un formular nou apelează aceeași funcție cu câmpurile lui.
 
-- În dezvoltare, fără webhook, înscrierea apare în terminal.
-- În producție, fără webhook, formularul le spune oamenilor să vă scrie pe Instagram sau Facebook.
+Variabilele de mediu (copiați `.env.example` în `.env.local`; pe Vercel, în Settings → Environment Variables):
+
+- `RESEND_API_KEY` — cheia API Resend;
+- `FORMULARE_EMAIL_DESTINATAR` — cine primește formularele;
+- `FORMULARE_EMAIL_EXPEDITOR` — expeditorul. Cu `onboarding@resend.dev`, Resend trimite doar către adresa contului vostru Resend. Ca să trimiteți și altor adrese, verificați un domeniu în Resend și folosiți o adresă de pe el.
+
+Fără cheie, în dezvoltare formularul apare doar în terminal, iar în producție le cere oamenilor să vă scrie pe Instagram sau Facebook. Un câmp ascuns oprește roboții simpli de spam.
 
 ## Poze
 

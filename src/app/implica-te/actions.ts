@@ -2,7 +2,7 @@
 
 import { directii } from "@/data/directii";
 import { site } from "@/data/site";
-import { salveazaInscriere } from "@/lib/inscrieri";
+import { trimiteFormular } from "@/lib/email";
 
 export type ValoriFormular = {
   nume: string;
@@ -24,6 +24,9 @@ export type StareFormular = {
 const text = (formData: FormData, cheie: string, max = 200) => String(formData.get(cheie) ?? "").trim().slice(0, max);
 
 export async function trimiteInscriere(_prev: StareFormular, formData: FormData): Promise<StareFormular> {
+  // Capcană pentru roboți: câmpul „website” e ascuns oamenilor. Dacă e completat, nu trimitem nimic.
+  if (text(formData, "website")) return { stare: "trimis", prenume: text(formData, "nume").split(/\s+/)[0] || "prietene" };
+
   const idDirectii = new Set<string>(directii.map((d) => d.id));
   const valori: ValoriFormular = {
     nume: text(formData, "nume", 120),
@@ -36,17 +39,27 @@ export async function trimiteInscriere(_prev: StareFormular, formData: FormData)
 
   const erori: StareFormular["erori"] = {};
   if (!valori.nume) erori.nume = "Scrie-ne cum te cheamă.";
-  if (!valori.contact) erori.contact = "Lasă-ne un număr de telefon sau contul de Instagram.";
+  if (!valori.contact) erori.contact = "Lasă-ne un număr de telefon, contul de Instagram sau o adresă de e-mail.";
   if (formData.get("acord") !== "da") erori.acord = "Bifează acordul ca să te putem contacta.";
 
   if (Object.keys(erori).length > 0) {
     return { stare: "eroare", mesaj: "Mai avem nevoie de câteva informații.", erori, valori };
   }
 
-  const rezultat = await salveazaInscriere({
-    ...valori,
-    interese: valori.interese.map((id) => directii.find((d) => d.id === id)?.nume ?? id),
-    trimisLa: new Date().toISOString(),
+  const numeInterese = valori.interese.map((id) => directii.find((d) => d.id === id)?.nume ?? id);
+  const rezultat = await trimiteFormular({
+    formular: "Voluntar nou",
+    subiect: valori.nume,
+    raspunsLa: valori.contact,
+    campuri: [
+      { eticheta: "Nume", valoare: valori.nume },
+      { eticheta: "Vârsta", valoare: valori.varsta },
+      { eticheta: "Satul", valoare: valori.sat },
+      { eticheta: "Telefon / Instagram / e-mail", valoare: valori.contact },
+      { eticheta: "Ce îl interesează", valoare: numeInterese.join(", ") },
+      { eticheta: "Mesaj", valoare: valori.mesaj },
+      { eticheta: "Trimis la", valoare: new Date().toLocaleString("ro-RO", { timeZone: "Europe/Bucharest" }) },
+    ],
   });
 
   if (!rezultat.ok) {
