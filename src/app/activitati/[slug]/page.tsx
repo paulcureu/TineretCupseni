@@ -12,6 +12,8 @@ import { getDirectie } from "@/data/directii";
 import { getAlbum } from "@/data/galerie";
 import { site } from "@/data/site";
 import { AN_PROGRAM, cuNumar, formateazaLuni, LUNI_ABREVIATE } from "@/lib/luni";
+import { JsonLd } from "@/components/JsonLd";
+import { firNavigare, metadatePagina } from "@/lib/seo";
 
 export function generateStaticParams() {
   return activitati.map((a) => ({ slug: a.slug }));
@@ -21,10 +23,11 @@ export async function generateMetadata(props: PageProps<"/activitati/[slug]">): 
   const { slug } = await props.params;
   const a = getActivitate(slug);
   if (!a) return {};
-  return {
-    title: a.titlu,
-    description: `${a.descriere} ${formateazaLuni(a.luni)}, comuna Cupșeni.`,
-  };
+  return metadatePagina({
+    titlu: a.titlu,
+    descriere: `${a.descriere} ${formateazaLuni(a.luni)}, comuna Cupșeni.`,
+    cale: `/activitati/${a.slug}`,
+  });
 }
 
 export default function ActivitatePage(props: PageProps<"/activitati/[slug]">) {
@@ -49,6 +52,12 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
 
   return (
     <>
+      <JsonLd
+        date={firNavigare([
+          { nume: `Calendar ${AN_PROGRAM}`, cale: "/calendar" },
+          { nume: a.titlu, cale: `/activitati/${a.slug}` },
+        ])}
+      />
       <div className="container section section--tight stack-lg">
         <nav aria-label="Ești aici" className="breadcrumb">
           <Link href="/calendar" transitionTypes={["nav-back"]}>

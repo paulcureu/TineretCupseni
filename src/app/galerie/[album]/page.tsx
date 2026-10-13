@@ -9,6 +9,8 @@ import { PageSkeleton } from "@/components/ui";
 import { getActivitate } from "@/data/activitati";
 import { albume, detaliiAlbum, getAlbum } from "@/data/galerie";
 import { cuNumar } from "@/lib/luni";
+import { JsonLd } from "@/components/JsonLd";
+import { absolut, firNavigare, metadatePagina } from "@/lib/seo";
 
 export function generateStaticParams() {
   return albume.map((a) => ({ album: a.slug }));
@@ -18,11 +20,11 @@ export async function generateMetadata(props: PageProps<"/galerie/[album]">): Pr
   const { album: slug } = await props.params;
   const album = getAlbum(slug);
   if (!album) return {};
-  return {
-    title: `${album.titlu} — Galerie`,
-    description: album.descriere,
-    openGraph: { images: [{ url: album.coperta.src, width: album.coperta.w, height: album.coperta.h, alt: album.coperta.alt }] },
-  };
+  return metadatePagina({
+    titlu: `${album.titlu} — Galerie foto`,
+    descriere: [album.descriere, detaliiAlbum(album)].filter(Boolean).join(" "),
+    cale: `/galerie/${album.slug}`,
+  });
 }
 
 export default function AlbumPage(props: PageProps<"/galerie/[album]">) {
@@ -43,6 +45,29 @@ async function Album({ params }: { params: Promise<{ album: string }> }) {
 
   return (
     <div className="container section section--tight stack-lg">
+      <JsonLd
+        date={[
+          firNavigare([
+            { nume: "Galerie", cale: "/galerie" },
+            { nume: album.titlu, cale: `/galerie/${album.slug}` },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            name: album.titlu,
+            description: album.descriere,
+            url: absolut(`/galerie/${album.slug}`),
+            ...(album.loc ? { contentLocation: { "@type": "Place", name: album.loc } } : {}),
+            image: album.foto.map((f) => ({
+              "@type": "ImageObject",
+              contentUrl: absolut(f.src),
+              description: f.alt,
+              width: f.w,
+              height: f.h,
+            })),
+          },
+        ]}
+      />
       <nav aria-label="Ești aici" className="breadcrumb">
         <Link href="/galerie" transitionTypes={["nav-back"]}>
           Galerie

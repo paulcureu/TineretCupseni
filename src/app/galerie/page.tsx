@@ -7,11 +7,13 @@ import { SectionHeader } from "@/components/ui";
 import { albume, detaliiAlbum } from "@/data/galerie";
 import { site } from "@/data/site";
 import { cuNumar } from "@/lib/luni";
+import { metadatePagina } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Galerie",
-  description: "Fotografii de la activitățile tinerilor din comuna Cupșeni: prima întâlnire a echipei și prima seară de film.",
-};
+export const metadata: Metadata = metadatePagina({
+  titlu: "Galerie foto",
+  descriere: "Fotografii de la activitățile tinerilor din comuna Cupșeni: prima întâlnire a grupului de inițiativă, întâlnirea cu tinerii din comună și prima seară de film.",
+  cale: "/galerie",
+});
 
 export default function GaleriePage() {
   return (

@@ -7,7 +7,8 @@ export const site = {
   slogan: "4 sate, o singură comunitate",
   descriere:
     "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni. Finaliști Satul European de Tineret 2027, cu 33 de activități pentru tot anul.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // Adresa publică. Se poate schimba din NEXT_PUBLIC_SITE_URL (de ex. după ce aveți un domeniu .ro).
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://tineret-cupseni.vercel.app",
   email: "[adresa de e-mail]",
   locatie: "Comuna Cupșeni, județul Maramureș",
   sate: ["Cupșeni", "Costeni", "Libotin", "Ungureni"],
@@ -21,6 +22,10 @@ export const site = {
     titlu: "Candidatura comunei Cupșeni, jud. Maramureș | Sat European de Tineret 2027",
     autor: "Grigorescu Dan",
     coperta: "/foto/video-candidatura.jpg",
+  },
+  autor: {
+    nume: "Paul Cureu",
+    instagram: "https://www.instagram.com/paulcureu/",
   },
   postareSearaDeFilm:
     "https://www.facebook.com/permalink.php?story_fbid=pfbid0SW7y7QXVSpZnYMr9xw1tTSSHKJkz5aK4FGdUy9sjfs5KDhRqyiPQEsRNNzSSNTYml&id=61594397014801",

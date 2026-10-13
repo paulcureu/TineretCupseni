@@ -724,6 +724,22 @@ button {
   font-size: 14px;
 }
 
+.site-footer__autor a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--sun);
+  text-underline-offset: 3px;
+}
+
+.site-footer__autor a:hover {
+  color: var(--sun);
+}
+
+.site-footer__inima {
+  color: var(--sun);
+}
+
 .logo-card {
   display: flex;
   flex-wrap: wrap;

@@ -69,6 +69,14 @@ Fără cheie, în dezvoltare formularul apare doar în terminal, iar în produc�
 
 Pozele sunt redimensionate la maximum 1600 px; `next/image` le optimizează mai departe.
 
+## SEO și previzualizări pe rețele
+
+- Adresa site-ului e `https://tineret-cupseni.vercel.app` (în `src/data/site.ts`). Dacă treceți pe un domeniu propriu, setați `NEXT_PUBLIC_SITE_URL` pe Vercel.
+- Imaginea care apare lângă link pe WhatsApp, Facebook etc. vine din `opengraph-image.tsx` din fiecare pagină (desenul comun e în `src/lib/og.tsx`, fonturile în `assets/fonts/`). Activitățile și albumele au fiecare imaginea lor.
+- Titlul, descrierea și adresa canonică ale fiecărei pagini se setează cu `metadatePagina()` din `src/lib/seo.ts`.
+- Google primește `sitemap.xml` (cu pozele din albume), `robots.txt`, date structurate (organizația, firul de navigare, galeriile) și iconițele din `src/app/` și `public/brand/`.
+- După publicare, trimiteți `https://tineret-cupseni.vercel.app/sitemap.xml` în Google Search Console.
+
 ## Publicare
 
-Cel mai simplu: un cont gratuit pe [Vercel](https://vercel.com), conectat la depozitul GitHub. Setați acolo `NEXT_PUBLIC_SITE_URL` și, opțional, `INSCRIERI_WEBHOOK_URL`.
+Cel mai simplu: un cont gratuit pe [Vercel](https://vercel.com), conectat la depozitul GitHub. Setați acolo variabilele pentru Resend (vezi mai sus) și, dacă aveți un domeniu propriu, `NEXT_PUBLIC_SITE_URL`.

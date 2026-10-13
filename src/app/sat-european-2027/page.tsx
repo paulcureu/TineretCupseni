@@ -9,11 +9,13 @@ import { activitati } from "@/data/activitati";
 import { directii } from "@/data/directii";
 import { site } from "@/data/site";
 import { formateazaLuni, pluralActivitati } from "@/lib/luni";
+import { metadatePagina } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Satul European de Tineret 2027",
-  description: `Cupșeni este finalist pentru titlul de Sat European de Tineret 2027. Candidatura noastră: ${activitati.length} de activități, 12 luni, 4 sate, 7 schimbări.`,
-};
+export const metadata: Metadata = metadatePagina({
+  titlu: "Satul European de Tineret 2027",
+  descriere: `Cupșeni este comună finalistă pentru titlul de Sat European de Tineret 2027. Ce înseamnă programul și ce aduce candidatura noastră: ${activitati.length} de activități, 4 sate, 7 schimbări.`,
+  cale: "/sat-european-2027",
+});
 
 // Ce este programul, pe scurt (după europeanyouthvillage.eu). Fără etapele și datele concursului.
 const principii: { titlu: string; text: string; icon: IconName }[] = [

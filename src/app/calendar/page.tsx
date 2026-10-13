@@ -8,11 +8,13 @@ import { Icon } from "@/components/Icon";
 import { activitati } from "@/data/activitati";
 import { directii } from "@/data/directii";
 import { detaliiAlbum, evenimente } from "@/data/galerie";
+import { metadatePagina } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Calendarul activităților 2027",
-  description: `Toate cele ${activitati.length} de activități din 2027, lună de lună: ateliere, sport, tradiții, seri de film și multe altele în comuna Cupșeni.`,
-};
+export const metadata: Metadata = metadatePagina({
+  titlu: "Calendarul activităților 2027",
+  descriere: `Toate cele ${activitati.length} de activități din 2027, lună de lună: ateliere, sport, tradiții, seri de film și multe altele în comuna Cupșeni.`,
+  cale: "/calendar",
+});
 
 export default function CalendarPage() {
   return (

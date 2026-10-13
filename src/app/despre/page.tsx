@@ -9,11 +9,13 @@ import { SectionHeader } from "@/components/ui";
 import { activitati } from "@/data/activitati";
 import { echipa } from "@/data/echipa";
 import { sate } from "@/data/site";
+import { metadatePagina } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Despre noi",
-  description: "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni: povestea noastră, echipa și locul de unde venim.",
-};
+export const metadata: Metadata = metadatePagina({
+  titlu: "Despre noi",
+  descriere: "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni: povestea noastră, echipa și locul de unde venim.",
+  cale: "/despre",
+});
 
 // Doar momentele noastre; etapele concursului nu apar pe site.
 const drum = [

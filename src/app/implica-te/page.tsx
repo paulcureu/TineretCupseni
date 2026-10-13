@@ -6,11 +6,13 @@ import { SectionHeader } from "@/components/ui";
 import { VolunteerForm } from "@/components/VolunteerForm";
 import { activitati } from "@/data/activitati";
 import { parteneri, site } from "@/data/site";
+import { metadatePagina } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Implică-te",
-  description: "Devino voluntar, intră în grupul de inițiativă, propune o activitate sau sprijină-ne ca partener. Tinerii din comuna Cupșeni.",
-};
+export const metadata: Metadata = metadatePagina({
+  titlu: "Implică-te",
+  descriere: "Devino voluntar, intră în grupul de inițiativă, propune o activitate sau sprijină-ne ca partener. Tinerii din comuna Cupșeni.",
+  cale: "/implica-te",
+});
 
 const moduri: { titlu: string; text: string; icon: IconName; fundal: string; culoare: string }[] = [
   { titlu: "Voluntar la evenimente", text: "Montăm, primim oaspeții, facem poze, strângem după.", icon: "inima", fundal: "#E3EFE5", culoare: "#1E3F1A" },

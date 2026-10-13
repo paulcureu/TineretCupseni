@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { MobileCarousel } from "@/components/MobileCarousel";
 import { PageShell } from "@/components/PageShell";
@@ -6,6 +7,7 @@ import { Icon } from "@/components/Icon";
 import { BandaSate } from "@/components/BandaSate";
 import { BandaDealuri } from "@/components/Peisaj";
 import { SocialLinks } from "@/components/SocialLinks";
+import { JsonLd } from "@/components/JsonLd";
 import { VideoYouTube } from "@/components/VideoYouTube";
 import { ArrowLink, SectionHeader, StatTile } from "@/components/ui";
 import { activitati, activitatiDinLuna, getActivitate } from "@/data/activitati";
@@ -14,6 +16,41 @@ import { echipa } from "@/data/echipa";
 import { detaliiAlbum, evenimente } from "@/data/galerie";
 import { site } from "@/data/site";
 import { cuNumar, LUNI, pluralActivitati } from "@/lib/luni";
+import { absolut, metadatePagina } from "@/lib/seo";
+
+export const metadata: Metadata = metadatePagina({
+  titlu: `${site.nume} — Satul European de Tineret 2027`,
+  descriere: site.descriere,
+  cale: "/",
+});
+
+// Cine suntem, pentru Google: organizația și site-ul.
+const organizatie = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": absolut("/#organizatie"),
+  name: site.nume,
+  alternateName: site.numeScurt,
+  url: absolut("/"),
+  logo: absolut("/brand/logo-512.png"),
+  image: absolut("/foto/grup/prima-intalnire-apus.jpg"),
+  description: site.descriere,
+  slogan: site.slogan,
+  sameAs: Object.values(site.social),
+  address: { "@type": "PostalAddress", addressLocality: "Cupșeni", addressRegion: "Maramureș", addressCountry: "RO" },
+  areaServed: site.sate.map((sat) => ({ "@type": "Place", name: `${sat}, comuna Cupșeni, Maramureș` })),
+};
+
+const siteWeb = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": absolut("/#site"),
+  url: absolut("/"),
+  name: site.nume,
+  alternateName: site.numeScurt,
+  inLanguage: "ro-RO",
+  publisher: { "@id": absolut("/#organizatie") },
+};
 
 // Câte un moment de reper pentru fiecare lună din 2027.
 const repere = [
@@ -35,6 +72,7 @@ export default function AcasaPage() {
   return (
     <PageShell>
       <>
+        <JsonLd date={[organizatie, siteWeb]} />
         <section className="hero" aria-labelledby="hero-titlu">
           <div className="container hero__inner">
             <div className="hero__text">
