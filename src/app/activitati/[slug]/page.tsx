@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { MobileCarousel } from "@/components/MobileCarousel";
+import { PageShell } from "@/components/PageShell";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -27,9 +29,11 @@ export async function generateMetadata(props: PageProps<"/activitati/[slug]">): 
 
 export default function ActivitatePage(props: PageProps<"/activitati/[slug]">) {
   return (
-    <Suspense fallback={<PageSkeleton />}>
-      <Activitate params={props.params} />
-    </Suspense>
+    <PageShell>
+      <Suspense fallback={<PageSkeleton />}>
+        <Activitate params={props.params} />
+      </Suspense>
+    </PageShell>
   );
 }
 
@@ -47,9 +51,13 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
     <>
       <div className="container section section--tight stack-lg">
         <nav aria-label="Ești aici" className="breadcrumb">
-          <Link href="/calendar">Calendar {AN_PROGRAM}</Link>
+          <Link href="/calendar" transitionTypes={["nav-back"]}>
+            Calendar {AN_PROGRAM}
+          </Link>
           <span aria-hidden="true">/</span>
-          <Link href={`/calendar?directie=${directie.id}`}>{directie.nume}</Link>
+          <Link href={`/calendar?directie=${directie.id}`} transitionTypes={["nav-back"]}>
+            {directie.nume}
+          </Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{a.titlu}</span>
         </nav>
@@ -94,7 +102,7 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
             {album ? (
               <div className="collage">
                 {album.foto.slice(0, 3).map((f, i) => (
-                  <Image key={f.src} src={f.src} alt={f.alt} width={f.w} height={f.h} sizes={i === 0 ? "(max-width: 900px) 60vw, 320px" : "(max-width: 900px) 40vw, 220px"} priority={i === 0} />
+                  <Image key={f.src} src={f.src} alt={f.alt} width={f.w} height={f.h} sizes={i === 0 ? "(max-width: 900px) 60vw, 320px" : "(max-width: 900px) 40vw, 220px"} loading={i === 0 ? "eager" : "lazy"} />
                 ))}
               </div>
             ) : (
@@ -160,7 +168,7 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
                 <p className="lead">{editie.text}</p>
               </div>
               <div className="section-header__action">
-                <Link href={`/galerie/${album.slug}`} className="btn btn--navy">
+                <Link href={`/galerie/${album.slug}`} className="btn btn--navy" transitionTypes={["nav-forward"]}>
                   Albumul complet · {cuNumar(album.foto.length, "fotografie", "fotografii")} <Icon name="sageata" size={18} />
                 </Link>
               </div>
@@ -194,18 +202,18 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
               </h2>
             </div>
             <div className="section-header__action">
-              <Link href="/calendar" className="arrow-link">
+              <Link href="/calendar" className="arrow-link" transitionTypes={["nav-back"]}>
                 Înapoi la calendar <Icon name="sageata" size={18} />
               </Link>
             </div>
           </div>
-          <ul className="auto-grid auto-grid--300">
+          <MobileCarousel className="auto-grid auto-grid--300" label="Activități înrudite" latime="86%">
             {inrudite.map((x) => (
               <li key={x.slug}>
                 <ActivityCard activitate={x} />
               </li>
             ))}
-          </ul>
+          </MobileCarousel>
         </section>
       ) : null}
     </>

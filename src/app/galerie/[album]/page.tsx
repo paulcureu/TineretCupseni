@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/PageShell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -26,9 +27,11 @@ export async function generateMetadata(props: PageProps<"/galerie/[album]">): Pr
 
 export default function AlbumPage(props: PageProps<"/galerie/[album]">) {
   return (
-    <Suspense fallback={<PageSkeleton />}>
-      <Album params={props.params} />
-    </Suspense>
+    <PageShell>
+      <Suspense fallback={<PageSkeleton />}>
+        <Album params={props.params} />
+      </Suspense>
+    </PageShell>
   );
 }
 
@@ -41,7 +44,9 @@ async function Album({ params }: { params: Promise<{ album: string }> }) {
   return (
     <div className="container section section--tight stack-lg">
       <nav aria-label="Ești aici" className="breadcrumb">
-        <Link href="/galerie">Galerie</Link>
+        <Link href="/galerie" transitionTypes={["nav-back"]}>
+          Galerie
+        </Link>
         <span aria-hidden="true">/</span>
         <span aria-current="page">{album.titlu}</span>
       </nav>

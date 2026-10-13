@@ -64,7 +64,7 @@ export function ActivityCard({ activitate }: { activitate: Activitate }) {
         <span className="activity-card__nr">#{String(activitate.nr).padStart(2, "0")}</span>
       </div>
       <h3 className="activity-card__title">
-        <Link href={`/activitati/${activitate.slug}`} className="stretched-link">
+        <Link href={`/activitati/${activitate.slug}`} className="stretched-link" transitionTypes={["nav-forward"]}>
           {activitate.titlu}
         </Link>
       </h3>
@@ -98,7 +98,9 @@ export function PageSkeleton() {
 export function StatTile({ numar, children }: { numar: number; children: ReactNode }) {
   return (
     <div className="stat-tile">
-      <span className="stat-tile__nr">{numar}</span>
+      <span className="stat-tile__nr" data-numar={numar}>
+        {numar}
+      </span>
       <span className="stat-tile__label">{children}</span>
     </div>
   );

@@ -421,8 +421,10 @@ button {
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .btn:disabled {
@@ -577,61 +579,9 @@ button {
   text-underline-offset: 9px;
 }
 
-.mobile-menu {
-  display: none;
-}
-
-.mobile-menu__toggle {
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  border: 1px solid var(--navy-line);
-  background: transparent;
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-menu__panel {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  padding: 6px var(--gutter) 20px;
-  background: var(--navy);
-  border-top: 1px solid #22355c;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-menu__panel[hidden] {
-  display: none;
-}
-
-.mobile-menu__panel ul {
-  margin-bottom: 12px;
-}
-
-.mobile-menu__link {
-  display: block;
-  padding: 15px 4px;
-  border-bottom: 1px solid #22355c;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 19px;
-  text-decoration: none;
-}
-
-.mobile-menu__link[aria-current="page"] {
-  color: var(--sun);
-}
-
-@media (max-width: 1080px) {
+@media (max-width: 1079px) {
   .site-nav {
     display: none;
-  }
-  .mobile-menu {
-    display: block;
   }
   .brand__name {
     font-size: 17px;
@@ -1226,7 +1176,12 @@ button {
 .month-tile:hover {
   color: var(--ink);
   border-color: var(--navy);
-  transform: translateY(-2px);
+}
+
+@media (hover: hover) {
+  .month-tile:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .month-tile__head {
@@ -1471,25 +1426,25 @@ button {
   gap: 12px;
 }
 
-.mosaic img {
+.mosaic > li {
   flex: 1 1 200px;
   min-width: 0;
+}
+
+.mosaic > li:first-child {
+  flex: 2 1 320px;
+}
+
+.mosaic img {
+  width: 100%;
   height: 380px;
   object-fit: cover;
   border-radius: var(--radius);
 }
 
-.mosaic img:first-child {
-  flex: 2 1 320px;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 699px) {
   .mosaic img {
-    height: 240px;
-    flex-basis: 40%;
-  }
-  .mosaic img:first-child {
-    flex-basis: 100%;
+    height: 420px;
   }
 }
 
@@ -2146,8 +2101,10 @@ button {
   transition: transform 0.3s ease;
 }
 
-.masonry__item:hover img {
-  transform: scale(1.03);
+@media (hover: hover) {
+  .masonry__item:hover img {
+    transform: scale(1.03);
+  }
 }
 
 @media (max-width: 600px) {
@@ -2160,86 +2117,7 @@ button {
   }
 }
 
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px;
-  background: rgba(9, 14, 28, 0.94);
-  color: var(--on-navy);
-}
-
-.lightbox__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  border: 1px solid var(--navy-line);
-  background: var(--navy);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox__stage {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  max-width: 100%;
-}
-
-.lightbox__img {
-  width: auto;
-  max-width: min(78vw, 1100px);
-  max-height: 80vh;
-  border-radius: 16px;
-}
-
-.lightbox__nav {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
-  border: 0;
-  border-radius: 999px;
-  background: var(--sun);
-  color: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox__caption {
-  font-size: 15px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .lightbox__stage {
-    flex-direction: column;
-  }
-  .lightbox__img {
-    max-width: 92vw;
-    max-height: 70vh;
-  }
-  .lightbox__nav {
-    position: absolute;
-    bottom: 72px;
-  }
-  .lightbox__nav:first-child {
-    left: 24px;
-  }
-  .lightbox__nav:last-child {
-    right: 24px;
-  }
-}
+/* Lightbox-ul e definit mai jos, în secțiunea „Experiența pe telefon”. */
 
 /* --- Despre ------------------------------------------------------------- */
 
@@ -2937,4 +2815,924 @@ button {
   gap: 20px;
   min-height: 50vh;
   justify-content: center;
+}
+
+/* ==========================================================================
+   Experiența pe telefon: atingere, navigare, caruseluri, tranziții
+   ========================================================================== */
+
+:root {
+  --dock-space: 0px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+label,
+summary {
+  touch-action: manipulation;
+}
+
+.display,
+.h1,
+.h2,
+.h3,
+.h4 {
+  text-wrap: balance;
+}
+
+p,
+.lead {
+  text-wrap: pretty;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--header-offset, 80px) + 16px);
+}
+
+/* Răspuns la atingere: cardurile și butoanele „se apasă” sub deget. */
+.btn,
+.month-tile,
+.direction-card,
+.story-card,
+.activity-card,
+.album-card,
+.social-card,
+.support-card,
+.past-strip__item,
+.join-card,
+.mini-activity,
+.filter-chip,
+.month-picker button,
+.segmented button,
+.masonry__item {
+  transition:
+    transform 0.2s var(--ease-out),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (hover: none) {
+  .btn:active,
+  .filter-chip:active,
+  .month-picker button:active,
+  .segmented button:active {
+    transform: scale(0.96);
+  }
+  .month-tile:active,
+  .direction-card:active,
+  .story-card:active,
+  .activity-card:active,
+  .album-card:active,
+  .social-card:active,
+  .support-card:active,
+  .past-strip__item:active,
+  .join-card:active,
+  .mini-activity:active,
+  .masonry__item:active {
+    transform: scale(0.98);
+  }
+}
+
+/* --- Antet care se retrage la derulare ---------------------------------- */
+
+.site-header {
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.3s ease;
+}
+
+.site-header[data-scrolled="true"] {
+  box-shadow: 0 10px 30px rgba(9, 14, 28, 0.28);
+}
+
+@media (max-width: 1079px) {
+  .site-header {
+    padding-top: env(safe-area-inset-top);
+  }
+  .site-header[data-hidden="true"] {
+    transform: translateY(-100%);
+    box-shadow: none;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--navy-line);
+  background: transparent;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) and (max-width: 1079px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* --- Meniul pe tot ecranul ---------------------------------------------- */
+
+.menu-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--navy);
+  color: var(--white);
+  visibility: hidden;
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (min-width: 1080px) {
+  .menu-sheet {
+    display: none;
+  }
+}
+
+.menu-sheet__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px var(--gutter);
+}
+
+.menu-sheet__close {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--navy-line);
+  background: var(--navy-2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-sheet__nav {
+  flex: 1 0 auto;
+  padding: 12px var(--gutter) 8px;
+}
+
+.menu-sheet__link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #22355c;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.menu-sheet__link:hover,
+.menu-sheet__link:active {
+  color: var(--sun);
+}
+
+.menu-sheet__nr {
+  min-width: 24px;
+  font-family: var(--font-display-stack);
+  font-weight: 700;
+  font-size: 14px;
+  color: #8fa0bc;
+}
+
+.menu-sheet__label {
+  flex: 1 1 auto;
+  font-family: var(--font-display-stack);
+  font-weight: 800;
+  font-size: clamp(30px, 8.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.menu-sheet__arrow {
+  align-self: center;
+  opacity: 0.4;
+  transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
+}
+
+.menu-sheet__link:active .menu-sheet__arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.menu-sheet__link[aria-current="page"] {
+  color: var(--sun);
+}
+
+.menu-sheet__link[aria-current="page"] .menu-sheet__nr {
+  color: var(--sun);
+}
+
+.menu-sheet__link[aria-current="page"] .menu-sheet__arrow {
+  opacity: 1;
+}
+
+.menu-sheet__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px var(--gutter) calc(28px + var(--dock-space));
+  color: var(--on-navy);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.menu-sheet > .pattern-strip {
+  flex-shrink: 0;
+}
+
+/* --- Bara de jos (doar telefon) ----------------------------------------- */
+
+.dock {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --dock-space: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .dock {
+    display: block;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    z-index: 95;
+    transition:
+      transform 0.35s var(--ease-out),
+      opacity 0.25s ease;
+  }
+
+  .dock[data-hidden="true"] {
+    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .dock__inner {
+    --n: 5;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--n), 1fr);
+    padding: 6px;
+    border-radius: 24px;
+    background: rgba(20, 33, 61, 0.9);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 40px rgba(9, 14, 28, 0.35);
+  }
+
+  .dock__indicator {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / var(--n));
+    border-radius: 18px;
+    background: var(--sun);
+    transform: translateX(calc(var(--activ, 0) * 100%));
+    transition: transform 0.45s var(--ease-out);
+  }
+
+  .dock__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 56px;
+    padding: 6px 2px;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    color: var(--on-navy);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition:
+      color 0.3s ease,
+      transform 0.2s var(--ease-out);
+  }
+
+  .dock__item:hover {
+    color: var(--white);
+  }
+
+  .dock__item:active {
+    transform: scale(0.92);
+  }
+
+  .dock__item[data-activ="true"] {
+    color: var(--navy);
+  }
+
+  /* Spațiu sub conținut, ca bara să nu acopere finalul paginii. */
+  .site-footer__bottom {
+    padding-bottom: calc(28px + var(--dock-space));
+  }
+}
+
+/* --- Caruseluri pe telefon ---------------------------------------------- */
+
+.carousel__progress {
+  display: none;
+}
+
+@media (max-width: 699px) {
+  .carousel__track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 12px;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 4px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel__track > li {
+    flex: 0 0 var(--slide, 78%) !important;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .carousel__progress {
+    display: block;
+    position: relative;
+    height: 4px;
+    margin: 18px auto 0;
+    max-width: 120px;
+    border-radius: 999px;
+    background: var(--line-2);
+    overflow: hidden;
+  }
+
+  .carousel__progress span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: calc(var(--w, 0.3) * 100%);
+    border-radius: inherit;
+    background: var(--navy);
+    transform: translateX(calc(var(--p, 0) * (1 - var(--w, 0.3)) / var(--w, 0.3) * 100%));
+  }
+
+  .band--navy .carousel__progress,
+  .band--green .carousel__progress {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .band--navy .carousel__progress span,
+  .band--green .carousel__progress span {
+    background: var(--white);
+  }
+}
+
+/* --- Ajustări de layout pentru telefon (fără schimbări de design) -------- */
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 56px;
+  }
+
+  .hero__inner {
+    padding-top: 28px;
+    gap: 28px;
+  }
+
+  .hero__text {
+    gap: 20px;
+    padding-bottom: 0;
+  }
+
+  .hero .button-row,
+  .cta-panel .btn,
+  .section-header__action .btn {
+    width: 100%;
+  }
+
+  .hero .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__media {
+    padding-top: 4px;
+  }
+
+  .hero__photo {
+    max-width: 320px;
+  }
+
+  .hero__ring {
+    display: none;
+  }
+
+  .hero__sticker {
+    left: 2px;
+    bottom: 20px;
+    padding: 10px 14px 10px 10px;
+  }
+
+  .section-header {
+    gap: 18px;
+  }
+
+  .section-header__action {
+    width: 100%;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 32px;
+  }
+
+  .stat-tile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 18px;
+  }
+
+  .stat-tile__nr {
+    font-size: 44px;
+  }
+
+  .stat-tile__label {
+    font-size: 14px;
+  }
+
+  .story-card__photos {
+    height: 220px;
+  }
+
+  .village-card {
+    padding: 20px;
+  }
+
+  .collage {
+    height: 380px;
+  }
+
+  .form-card {
+    border-radius: var(--radius);
+  }
+}
+
+/* --- Calendar pe telefon ------------------------------------------------ */
+
+.month-switcher {
+  display: none;
+}
+
+.calendar__hint {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .month-switcher {
+    position: sticky;
+    top: calc(var(--header-offset, 0px) + 10px);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(20, 33, 61, 0.92);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    color: var(--white);
+    box-shadow: 0 12px 30px rgba(9, 14, 28, 0.25);
+    transition: top 0.35s var(--ease-out);
+  }
+
+  .month-switcher button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s var(--ease-out), opacity 0.2s ease;
+  }
+
+  .month-switcher button:active {
+    transform: scale(0.9);
+  }
+
+  .month-switcher button:disabled {
+    opacity: 0.3;
+  }
+
+  .month-switcher__label {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .month-switcher__label strong {
+    font-family: var(--font-display-stack);
+    font-size: 17px;
+  }
+
+  .month-switcher__label span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--on-navy);
+  }
+
+  .calendar__results {
+    touch-action: pan-y;
+  }
+
+  /* Pe telefon, bara lipicioasă ține locul titlului lunii (rămâne pentru cititoarele de ecran). */
+  .calendar__results {
+    scroll-margin-top: 150px;
+  }
+
+  .calendar__results .calendar__heading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .calendar__hint {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Tabelul anual: titlul activității rămâne fix la derularea orizontală. */
+  .year-table {
+    min-width: 760px;
+    font-size: 13px;
+  }
+
+  .year-table__nr {
+    display: none;
+  }
+
+  .year-table__title {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 170px !important;
+    max-width: 190px;
+    padding-left: 14px !important;
+    padding-right: 10px !important;
+    background: var(--white);
+    box-shadow: 8px 0 12px -10px rgba(20, 33, 61, 0.35);
+  }
+}
+
+/* --- Lightbox ------------------------------------------------------------ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: calc(16px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom));
+  color: var(--on-navy);
+  overscroll-behavior: contain;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 14, 28, 0.94);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.lightbox__top {
+  position: absolute;
+  top: calc(12px + env(safe-area-inset-top));
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lightbox__counter {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.lightbox__close {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid var(--navy-line);
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  touch-action: pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lightbox__frame {
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+}
+
+.lightbox__img {
+  width: auto;
+  max-width: min(78vw, 1100px);
+  max-height: 78vh;
+  border-radius: 16px;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.lightbox__nav {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__caption,
+.lightbox__hint {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.lightbox__caption {
+  font-size: 15px;
+}
+
+.lightbox__hint {
+  display: none;
+  font-size: 12px;
+  color: #8fa0bc;
+}
+
+@media (max-width: 767px) {
+  .lightbox__nav {
+    display: none;
+  }
+  .lightbox__img {
+    max-width: 100%;
+    max-height: 72vh;
+  }
+  .lightbox__hint {
+    display: block;
+  }
+}
+
+/* --- Intrarea animată a primului ecran ---------------------------------- */
+
+@keyframes ridica {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes rasare {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+  }
+}
+
+@keyframes apare-poza {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__text > *,
+  .page-hero__inner > * > *,
+  .page-hero__inner > .logo-card,
+  .page-hero__inner > .mini-stats {
+    animation: ridica 0.8s var(--ease-out) both;
+  }
+  .hero__text > :nth-child(2),
+  .page-hero__inner > * > :nth-child(2) {
+    animation-delay: 0.07s;
+  }
+  .hero__text > :nth-child(3),
+  .page-hero__inner > * > :nth-child(3) {
+    animation-delay: 0.14s;
+  }
+  .hero__text > :nth-child(4),
+  .page-hero__inner > * > :nth-child(4),
+  .page-hero__inner > .logo-card,
+  .page-hero__inner > .mini-stats {
+    animation-delay: 0.21s;
+  }
+  .hero__text > :nth-child(5) {
+    animation-delay: 0.28s;
+  }
+  .hero__sun {
+    animation: rasare 1.2s var(--ease-out) 0.1s both;
+  }
+  .hero__photo {
+    animation: apare-poza 1s var(--ease-out) 0.15s both;
+  }
+  .hero__sticker {
+    animation: ridica 0.7s var(--ease-out) 0.55s both;
+  }
+}
+
+/* --- Tranziții între pagini (View Transitions) -------------------------- */
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(site-header),
+::view-transition-group(site-dock) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header),
+::view-transition-old(site-dock) {
+  display: none;
+}
+
+::view-transition-new(site-header),
+::view-transition-new(site-dock) {
+  animation: none;
+}
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-slide {
+  from {
+    translate: var(--vt-offset, 0) var(--vt-offset-y, 0);
+  }
+}
+
+/* Fără direcție: o apariție discretă de jos în sus. */
+::view-transition-old(.page) {
+  animation: 140ms ease-in both vt-fade reverse;
+}
+
+::view-transition-new(.page) {
+  --vt-offset-y: 14px;
+  animation:
+    260ms ease-out 100ms both vt-fade,
+    420ms var(--ease-out) 100ms both vt-slide;
+}
+
+/* Înainte (mai adânc în site) și înapoi. */
+::view-transition-old(.nav-forward) {
+  --vt-offset: -48px;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    360ms ease-in both vt-slide reverse;
+}
+
+::view-transition-new(.nav-forward) {
+  --vt-offset: 48px;
+  animation:
+    240ms ease-out 120ms both vt-fade,
+    420ms var(--ease-out) both vt-slide;
+}
+
+::view-transition-old(.nav-back) {
+  --vt-offset: 48px;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    360ms ease-in both vt-slide reverse;
+}
+
+::view-transition-new(.nav-back) {
+  --vt-offset: -48px;
+  animation:
+    240ms ease-out 120ms both vt-fade,
+    420ms var(--ease-out) both vt-slide;
+}
+
+/* Schimbarea lunii în calendar. */
+::view-transition-old(.luna-urmatoare) {
+  --vt-offset: -32px;
+  animation:
+    120ms ease-in both vt-fade reverse,
+    260ms ease-in both vt-slide reverse;
+}
+
+::view-transition-new(.luna-urmatoare) {
+  --vt-offset: 32px;
+  animation:
+    200ms ease-out 90ms both vt-fade,
+    360ms var(--ease-out) both vt-slide;
+}
+
+::view-transition-old(.luna-anterioara) {
+  --vt-offset: 32px;
+  animation:
+    120ms ease-in both vt-fade reverse,
+    260ms ease-in both vt-slide reverse;
+}
+
+::view-transition-new(.luna-anterioara) {
+  --vt-offset: -32px;
+  animation:
+    200ms ease-out 90ms both vt-fade,
+    360ms var(--ease-out) both vt-slide;
+}
+
+::view-transition-old(.luna-schimbata) {
+  animation: 120ms ease-in both vt-fade reverse;
+}
+
+::view-transition-new(.luna-schimbata) {
+  animation: 220ms ease-out 80ms both vt-fade;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }

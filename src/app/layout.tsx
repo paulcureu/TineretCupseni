@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
+import { Suspense } from "react";
+import { MenuProvider } from "@/components/nav/MenuProvider";
+import { MobileDock } from "@/components/nav/MobileDock";
+import { MobileMenu } from "@/components/nav/MobileMenu";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
@@ -28,22 +32,35 @@ export const metadata: Metadata = {
     locale: "ro_RO",
     siteName: site.nume,
   },
+  appleWebApp: {
+    title: site.numeScurt,
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#14213D",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ro" className={`${display.variable} ${body.variable}`} data-scroll-behavior="smooth">
       <body>
-        <a href="#continut" className="skip-link">
-          Sari la conținut
-        </a>
-        <SiteHeader />
-        <main id="continut">{children}</main>
-        <SiteFooter />
+        <MenuProvider>
+          <a href="#continut" className="skip-link">
+            Sari la conținut
+          </a>
+          <SiteHeader />
+          <main id="continut">{children}</main>
+          <SiteFooter />
+          <Suspense fallback={null}>
+            <MobileMenu />
+          </Suspense>
+          <Suspense fallback={null}>
+            <MobileDock />
+          </Suspense>
+        </MenuProvider>
       </body>
     </html>
   );

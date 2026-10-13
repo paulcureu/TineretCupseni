@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { navigatie, site } from "@/data/site";
 import { Emblem } from "./Emblem";
-import { MobileMenu } from "./MobileMenu";
+import { MenuToggle } from "./nav/MenuToggle";
+import { ScrollHeader } from "./nav/ScrollHeader";
 import { NavLinks } from "./NavLinks";
 
 function NavLinksFaraStare() {
@@ -21,7 +22,7 @@ function NavLinksFaraStare() {
 
 export function SiteHeader() {
   return (
-    <header className="site-header">
+    <ScrollHeader>
       <div className="container site-header__inner">
         <Link href="/" className="brand">
           <Emblem id="antet" />
@@ -38,10 +39,8 @@ export function SiteHeader() {
             Implică-te
           </Link>
         </nav>
-        <Suspense fallback={null}>
-          <MobileMenu />
-        </Suspense>
+        <MenuToggle />
       </div>
-    </header>
+    </ScrollHeader>
   );
 }
