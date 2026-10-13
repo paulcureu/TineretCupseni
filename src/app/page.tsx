@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { BandaDealuri } from "@/components/Peisaj";
 import { SocialLinks } from "@/components/SocialLinks";
+import { VideoYouTube } from "@/components/VideoYouTube";
 import { ArrowLink, SectionHeader, StatTile } from "@/components/ui";
 import { activitati, activitatiDinLuna, getActivitate } from "@/data/activitati";
 import { directii, getDirectie } from "@/data/directii";
@@ -93,6 +94,16 @@ export default function AcasaPage() {
           <StatTile numar={12}>luni de program</StatTile>
           <StatTile numar={site.sate.length}>sate, o singură comunitate</StatTile>
           <StatTile numar={directii.length}>direcții de schimbare</StatTile>
+        </section>
+
+        <section className="section container stack-lg" aria-labelledby="video-titlu">
+          <SectionHeader
+            id="video-titlu"
+            eyebrow="Candidatura în imagini"
+            title="Echipa și proiectul, în filmul candidaturii"
+            lead="Filmul cu care comuna Cupșeni a candidat la titlul de Sat European de Tineret 2027, alături de grupul nostru de inițiativă."
+          />
+          <VideoYouTube {...site.videoCandidatura} />
         </section>
 
         <section className="section container stack-lg" aria-labelledby="an-titlu">
@@ -203,14 +214,14 @@ export default function AcasaPage() {
               title="Oamenii din spatele activităților"
               action={<ArrowLink href="/despre">Cunoaște echipa</ArrowLink>}
             />
-            <MobileCarousel className="auto-grid auto-grid--160" label="Echipa" latime="56%">
+            <MobileCarousel className="auto-grid auto-grid--200" label="Echipa" latime="56%">
               {echipa.map((m) => (
                 <li key={m.foto}>
                   <figure className="team-mini">
-                    <Image src={m.foto} alt={m.alt} width={900} height={1600} sizes="(max-width: 600px) 45vw, 200px" style={{ objectPosition: m.pozitie }} />
+                    <Image src={m.foto} alt={`Portret: ${m.nume}`} width={m.w} height={m.h} sizes="(max-width: 600px) 56vw, 230px" style={{ objectPosition: m.pozitie }} />
                     <figcaption>
                       <strong>{m.nume}</strong>
-                      <span>{m.rol}</span>
+                      {m.rol ? <span>{m.rol}</span> : null}
                     </figcaption>
                   </figure>
                 </li>
@@ -251,13 +262,13 @@ export default function AcasaPage() {
               <Image src="/foto/film/seara-014.jpg" alt="Publicul așezat în sală, la seara de film" width={1600} height={900} sizes="(max-width: 900px) 100vw, 600px" />
             </li>
             <li>
-              <Image src="/foto/intalnire/portret-03b.jpg" alt="Membră a echipei pe un deal însorit" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
+              <Image src="/foto/intalnire/portret-03b.jpg" alt="Ioana Bude, pe un deal însorit" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
             </li>
             <li>
               <Image src="/foto/film/seara-039.jpg" alt="O tânără zâmbind la seara de film" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
             </li>
             <li>
-              <Image src="/foto/intalnire/portret-06b.jpg" alt="Membră a echipei în pădurea de mesteceni" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
+              <Image src="/foto/intalnire/portret-06b.jpg" alt="Alexandra Podina, în pădurea de mesteceni" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
             </li>
           </MobileCarousel>
         </section>

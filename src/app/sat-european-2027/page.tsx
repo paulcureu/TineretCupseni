@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { SectionHeader, StatTile } from "@/components/ui";
+import { VideoYouTube } from "@/components/VideoYouTube";
 import { activitati } from "@/data/activitati";
 import { directii } from "@/data/directii";
 import { site } from "@/data/site";
@@ -59,6 +60,16 @@ export default function SatEuropeanPage() {
           <StatTile numar={12}>luni, din ianuarie până în decembrie</StatTile>
           <StatTile numar={site.sate.length}>sate implicate</StatTile>
           <StatTile numar={directii.length}>schimbări pe care le urmărim</StatTile>
+        </section>
+
+        <section className="container section section--tight stack-lg" aria-labelledby="film-titlu">
+          <SectionHeader
+            id="film-titlu"
+            eyebrow="Filmul candidaturii"
+            title="Candidatura noastră, în imagini"
+            lead="Filmul candidaturii comunei Cupșeni la titlul de Sat European de Tineret 2027, cu echipa care stă în spatele ei."
+          />
+          <VideoYouTube {...site.videoCandidatura} />
         </section>
 
         <section className="container section stack-lg" aria-labelledby="schimbari-titlu">

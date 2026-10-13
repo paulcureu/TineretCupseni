@@ -16,6 +16,12 @@ export const site = {
     instagram: "https://www.instagram.com/tineret.cupseni/",
     tiktok: "https://www.tiktok.com/@tineret.cupseni",
   },
+  videoCandidatura: {
+    id: "-F3EMpz0a_A",
+    titlu: "Candidatura comunei Cupșeni, jud. Maramureș | Sat European de Tineret 2027",
+    autor: "Grigorescu Dan",
+    coperta: "/foto/video-candidatura.jpg",
+  },
   postareSearaDeFilm:
     "https://www.facebook.com/permalink.php?story_fbid=pfbid0SW7y7QXVSpZnYMr9xw1tTSSHKJkz5aK4FGdUy9sjfs5KDhRqyiPQEsRNNzSSNTYml&id=61594397014801",
 } as const;

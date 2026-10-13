@@ -100,12 +100,10 @@ export default function DesprePage() {
             {echipa.map((m) => (
               <li key={m.foto}>
                 <figure className="team-card">
-                  <Image src={m.foto} alt={m.alt} width={900} height={1600} sizes="(max-width: 600px) 90vw, 280px" style={{ objectPosition: m.pozitie }} />
+                  <Image src={m.foto} alt={`Portret: ${m.nume}`} width={m.w} height={m.h} sizes="(max-width: 600px) 74vw, 280px" style={{ objectPosition: m.pozitie }} />
                   <figcaption>
                     <strong>{m.nume}</strong>
-                    <span>
-                      {m.rol} · {m.sat}
-                    </span>
+                    <span>{[m.rol, m.sat].filter(Boolean).join(" · ") || "Grupul de inițiativă"}</span>
                   </figcaption>
                 </figure>
               </li>

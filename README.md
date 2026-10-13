@@ -29,7 +29,7 @@ Site-ul apare la http://localhost:3000. Pentru versiunea de producție: `npm run
 
 - `src/data/activitati.ts` — cele 33 de activități din Anexa 3 (titlu, descriere, luni, direcție). Ediții deja ținute (ex. seara de film) se adaugă în `editii`.
 - `src/data/directii.ts` — cele 7 direcții (S1–S7): nume, culori și formularea din Fișa 3 (`formulare`).
-- `src/data/echipa.ts` — membrii echipei: nume, rol, sat, poză.
+- `src/data/echipa.ts` — grupul de inițiativă (10 membri): nume, poză și, opțional, rol și sat.
 - `src/data/galerie.ts` — albumele foto. Pozele stau în `public/foto/`.
 - `src/data/site.ts` — linkuri sociale, e-mail, parteneri, satele.
 
@@ -37,7 +37,7 @@ Site-ul apare la http://localhost:3000. Pentru versiunea de producție: `npm run
 
 Textele între paranteze drepte `[ ]` apar pe site așa cum sunt, ca să nu fie uitate:
 
-- numele, rolul și satul fiecărui membru (`echipa.ts`);
+- rolul și satul fiecărui membru, dacă vreți să apară (`echipa.ts`);
 - formularea celor 7 schimbări din Fișa 3 (`directii.ts`);
 - o frază despre fiecare sat și adresa de e-mail (`site.ts`);
 - povestea grupului (`src/app/despre/page.tsx`);
@@ -54,6 +54,8 @@ Formularul folosește un Server Action (`src/app/implica-te/actions.ts`). Înscr
 
 - `public/foto/intalnire/` — prima întâlnire a echipei (septembrie 2026), din folderul „Poze prima intalnire”.
 - `public/foto/film/` — prima seară de film (28 septembrie 2026): 30 de poze din folderul „Poze film” și 5 din postarea de pe Facebook.
+- `public/foto/echipa/` — portretele grupului de inițiativă.
+- `public/foto/video-candidatura.jpg` — coperta filmului candidaturii (YouTube). Filmul se încarcă de pe youtube-nocookie.com abia când apeși play.
 - `public/sigle/` — siglele programului (din Anexa 3).
 
 Pozele sunt redimensionate la maximum 1600 px; `next/image` le optimizează mai departe.
