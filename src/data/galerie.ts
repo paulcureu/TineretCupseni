@@ -59,18 +59,18 @@ const fotoTineri: Foto[] = [
 const fotoPortrete: Foto[] = [
   vertical("/foto/echipa/alexandra-onija.jpg", "Alexandra Onija"),
   vertical("/foto/echipa/alexandra-podina.jpg", "Alexandra Podina"),
-  vertical("/foto/echipa/andrea-butcure.jpg", "Andrea Butcure"),
-  vertical("/foto/echipa/andreea-buda.jpg", "Andreea Buda"),
+  vertical("/foto/echipa/andrea-buda.jpg", "Andrea Buda"),
+  vertical("/foto/echipa/andreea-butcure.jpg", "Andreea Butcure"),
   vertical("/foto/echipa/bogdan-filip.jpg", "Bogdan Filip"),
   vertical("/foto/echipa/cosmina-buda.jpg", "Cosmina Buda"),
   vertical("/foto/echipa/ioana-bude.jpg", "Ioana Bude"),
   vertical("/foto/echipa/ionut-butcure.jpg", "Ionuț Butcure"),
   vertical("/foto/echipa/iulia-heres.jpg", "Iulia Heres"),
-  vertical("/foto/intalnire/portret-02b.jpg", "Andreea Buda, pe deal"),
+  vertical("/foto/intalnire/portret-02b.jpg", "Andrea Buda, pe deal"),
   vertical("/foto/intalnire/portret-03b.jpg", "Ioana Bude, pe un deal însorit"),
   vertical("/foto/intalnire/portret-04b.jpg", "Ionuț Butcure, în iarba înaltă"),
   vertical("/foto/intalnire/portret-06b.jpg", "Alexandra Podina, în pădurea de mesteceni"),
-  vertical("/foto/intalnire/portret-02c.jpg", "Andreea Buda, sub cerul albastru"),
+  vertical("/foto/intalnire/portret-02c.jpg", "Andrea Buda, sub cerul albastru"),
   vertical("/foto/intalnire/portret-03c.jpg", "Ioana Bude, pe drumul dintre dealuri"),
 ];
 

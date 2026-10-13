@@ -164,7 +164,7 @@ export const activitati: Activitate[] = [
     titlu: "Meet Car — pasiunea pentru automobile și siguranță",
     descriere: "Întâlnire auto, expoziție și educație pentru siguranță rutieră și conduită responsabilă.",
     ce: ["Întâlnire auto", "Expoziție", "Educație pentru siguranță rutieră", "Conduită responsabilă"],
-    luni: [2, 5, 7, 10],
+    luni: [5],
   },
   {
     nr: 15,

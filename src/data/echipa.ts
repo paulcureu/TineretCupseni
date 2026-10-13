@@ -23,8 +23,8 @@ const portret = (nume: string, fisier: string, pozitie: string): Membru => ({
 export const echipa: Membru[] = [
   portret("Alexandra Onija", "alexandra-onija", "50% 30%"),
   portret("Alexandra Podina", "alexandra-podina", "50% 28%"),
-  portret("Andrea Butcure", "andrea-butcure", "50% 26%"),
-  portret("Andreea Buda", "andreea-buda", "50% 28%"),
+  portret("Andrea Buda", "andrea-buda", "50% 28%"),
+  portret("Andreea Butcure", "andreea-butcure", "50% 26%"),
   portret("Bogdan Filip", "bogdan-filip", "50% 28%"),
   portret("Cosmina Buda", "cosmina-buda", "50% 26%"),
   portret("Ioana Bude", "ioana-bude", "50% 34%"),

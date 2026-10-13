@@ -60,7 +60,7 @@ const repere = [
   "curs-de-prim-ajutor",
   "pe-doua-roti",
   "foc-de-tabara-legende-sub-stele",
-  "meet-car",
+  "serile-tinerilor",
   "noaptea-perseidelor",
   "gustul-generatiilor",
   "targul-de-toamna",
