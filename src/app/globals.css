@@ -5,30 +5,30 @@
    ========================================================================== */
 
 :root {
-  --navy: #14213d;
-  --navy-2: #1e2f52;
-  --navy-3: #0e1830;
-  --navy-line: #3a4f7a;
-  --sun: #f4a53c;
-  --green: #2f6b3a;
-  --green-dark: #1f4d29;
-  --green-2: #26593a;
+  --navy: #1A2E40;
+  --navy-2: #243B52;
+  --navy-3: #132230;
+  --navy-line: #3B5168;
+  --sun: #E89D35;
+  --green: #2D5A27;
+  --green-dark: #1E3F1A;
+  --green-2: #26502A;
 
-  --paper: #fafaf7;
+  --paper: #F9F8F6;
   --white: #ffffff;
-  --sky: #eef2f7;
-  --sky-2: #e8eef5;
+  --sky: #EEF1F4;
+  --sky-2: #E5E9EE;
 
-  --ink: #14213d;
-  --ink-2: #2d3748;
-  --muted: #4a5568;
-  --muted-2: #8391a7;
-  --line: #e1e6ee;
-  --line-2: #d5dce6;
-  --on-navy: #c5cedd;
-  --on-navy-soft: #9fb0ca;
+  --ink: #1A2E40;
+  --ink-2: #2B3B4C;
+  --muted: #4E5B69;
+  --muted-2: #8794A3;
+  --line: #E3E5E8;
+  --line-2: #D5D9DE;
+  --on-navy: #C9D1DA;
+  --on-navy-soft: #A3B0BF;
   --on-green: #e6f0e8;
-  --error: #b42318;
+  --error: #9E2A2B;
 
   --radius-sm: 14px;
   --radius: 22px;
@@ -36,8 +36,12 @@
   --container: 1200px;
   --gutter: 24px;
 
-  --font-display-stack: var(--font-display), "Trebuchet MS", sans-serif;
-  --font-body-stack: var(--font-body), system-ui, sans-serif;
+  --red: #9e2a2b;
+
+  /* Branding: Times New Roman (titluri), Poppins SemiBold (subtitluri), Poppins Light (text). */
+  --font-display-stack: "Times New Roman", var(--font-tinos), Times, serif;
+  --font-sub-stack: var(--font-poppins), system-ui, sans-serif;
+  --font-body-stack: var(--font-poppins), system-ui, sans-serif;
 
   --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='22'%3E%3Cpath d='M18 3 L31 11 L18 19 L5 11 Z' fill='none' stroke='%23F4A53C' stroke-width='2'/%3E%3Crect x='15.5' y='8.5' width='5' height='5' fill='%23FFFFFF' transform='rotate(45 18 11)'/%3E%3C/svg%3E");
 }
@@ -67,7 +71,8 @@ body {
   color: var(--ink);
   font-family: var(--font-body-stack);
   font-size: 17px;
-  line-height: 1.55;
+  font-weight: 300;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -326,19 +331,19 @@ button {
 .h3,
 .h4 {
   font-family: var(--font-display-stack);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .display {
-  font-weight: 800;
-  font-size: clamp(46px, 6.6vw, 96px);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  font-size: clamp(50px, 7vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
 }
 
 .display--md {
-  font-size: clamp(40px, 5.6vw, 80px);
-  line-height: 0.98;
+  font-size: clamp(42px, 5.8vw, 84px);
+  line-height: 1;
 }
 
 .display--ink {
@@ -346,21 +351,21 @@ button {
 }
 
 .h1 {
-  font-weight: 800;
-  font-size: clamp(38px, 5vw, 64px);
-  line-height: 1;
+  font-weight: 700;
+  font-size: clamp(40px, 5.2vw, 68px);
+  line-height: 1.02;
 }
 
 .h2 {
-  font-weight: 800;
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.04;
+  font-weight: 700;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.06;
 }
 
 .h3 {
-  font-weight: 800;
-  font-size: clamp(24px, 2.6vw, 32px);
-  line-height: 1.12;
+  font-weight: 700;
+  font-size: clamp(26px, 2.8vw, 34px);
+  line-height: 1.14;
 }
 
 .h4 {
@@ -370,8 +375,9 @@ button {
 }
 
 .eyebrow {
-  font-size: 14px;
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--green);
@@ -526,24 +532,52 @@ button {
   color: var(--white);
 }
 
-.brand__text {
+/* Logo-ul din branding: simbol + „Tineret” (Times New Roman) + „CUPȘENI” (Poppins, spațiat). */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__mark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border-radius: 999px;
+  background: var(--paper);
+  box-sizing: border-box;
+}
+
+.logo__mark img {
+  width: 100%;
+  height: auto;
+}
+
+.logo__text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  line-height: 1.05;
+  align-items: flex-start;
+  line-height: 1;
 }
 
-.brand__name {
+.logo__tineret {
   font-family: var(--font-display-stack);
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--white);
 }
 
-.brand__tagline {
-  font-size: 13px;
-  color: var(--on-navy);
+.logo__cupseni {
+  margin-top: 3px;
+  font-family: var(--font-sub-stack);
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
+  color: var(--sun);
 }
 
 .site-nav {
@@ -583,8 +617,8 @@ button {
   .site-nav {
     display: none;
   }
-  .brand__name {
-    font-size: 17px;
+  .logo__tineret {
+    font-size: 25px;
   }
 }
 
@@ -615,15 +649,30 @@ button {
   max-width: 380px;
 }
 
-.site-footer__name {
+.site-footer__name .logo__tineret {
+  font-size: 34px;
+}
+
+.site-footer__name .logo__cupseni {
+  font-size: 13.5px;
+}
+
+.site-footer__anpc {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  font-family: var(--font-display-stack);
-  font-weight: 800;
-  font-size: 21px;
-  line-height: 1.1;
-  color: var(--white);
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block: 4px 24px;
+}
+
+.site-footer__anpc a {
+  display: block;
+  border-radius: 8px;
+  line-height: 0;
+}
+
+.site-footer__anpc img {
+  width: 200px;
+  height: auto;
 }
 
 .site-footer__nav {
@@ -650,7 +699,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8fa0bc;
+  color: #93A2B3;
 }
 
 .site-footer__program {
@@ -671,7 +720,7 @@ button {
   justify-content: space-between;
   gap: 12px;
   padding-block: 20px 28px;
-  border-top: 1px solid #22355c;
+  border-top: 1px solid #2A4258;
   font-size: 14px;
 }
 
@@ -733,7 +782,7 @@ button {
   width: 46px;
   height: 46px;
   border-radius: 999px;
-  border: 1px solid #2e4470;
+  border: 1px solid #33495F;
   color: var(--white);
   display: flex;
   align-items: center;
@@ -1006,7 +1055,7 @@ button {
 
 .mini-stats strong {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 30px;
   line-height: 1;
   color: var(--sun);
@@ -1085,7 +1134,7 @@ button {
 
 .stat-tile__nr {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 52px;
   line-height: 1;
 }
@@ -1193,7 +1242,7 @@ button {
 
 .month-tile__name {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 22px;
 }
 
@@ -1301,8 +1350,8 @@ button {
 }
 
 .direction-card__name {
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 22px;
   line-height: 1.15;
 }
@@ -1325,7 +1374,7 @@ button {
 }
 
 .direction-card--navy .direction-card__name {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 24px;
 }
 
@@ -1404,7 +1453,7 @@ button {
 
 .join-card strong {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 30px;
   line-height: 1.05;
 }
@@ -1478,15 +1527,15 @@ button {
 }
 
 .activity-card__nr {
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 14px;
   color: var(--muted-2);
 }
 
 .activity-card__title {
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 21px;
   line-height: 1.2;
 }
@@ -1722,7 +1771,7 @@ button {
 }
 
 .month-picker__abbr {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 15px;
 }
 
@@ -1756,7 +1805,7 @@ button {
 
 .empty-state {
   padding: 48px 24px;
-  border: 1.5px dashed #c9d2de;
+  border: 1.5px dashed #CBD0D6;
   border-radius: var(--radius);
   text-align: center;
   color: var(--muted);
@@ -1799,7 +1848,7 @@ button {
   border-radius: 10px;
   background: transparent;
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
 }
 
@@ -1811,8 +1860,8 @@ button {
   width: 48px;
   padding-left: 16px !important;
   text-align: left !important;
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   color: var(--muted-2);
 }
 
@@ -1902,8 +1951,8 @@ button {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 24px;
   text-align: center;
   padding: 32px;
@@ -1919,9 +1968,9 @@ button {
   padding: 14px 6px;
   border-radius: 14px;
   background: var(--navy-2);
-  color: #8fa0bc;
+  color: #93A2B3;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .months-strip li[data-activ] {
@@ -1976,7 +2025,7 @@ button {
   padding: 26px;
   border-radius: var(--radius);
   background: #e3efe5;
-  color: #1f3b26;
+  color: #1E3F1A;
 }
 
 .thanks > div {
@@ -2067,7 +2116,7 @@ button {
   align-items: flex-start;
   justify-content: center;
   padding: 28px 0 0 28px;
-  border: 2px dashed #c9d2de;
+  border: 2px dashed #CBD0D6;
   background: transparent;
 }
 
@@ -2162,8 +2211,8 @@ button {
 }
 
 .village-card__nr {
-  font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 15px;
   color: var(--green);
 }
@@ -2174,7 +2223,7 @@ button {
 
 .village-card__name {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 32px;
   line-height: 1;
 }
@@ -2308,8 +2357,8 @@ button {
 }
 
 .accordion__name {
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 24px;
   line-height: 1.15;
 }
@@ -2399,8 +2448,8 @@ button {
 }
 
 .step-card__nr {
-  font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 28px;
   line-height: 1;
 }
@@ -2448,7 +2497,8 @@ button {
 }
 
 .support-card strong {
-  font-family: var(--font-display-stack);
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 22px;
 }
 
@@ -2459,13 +2509,13 @@ button {
 
 .support-card__nr {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 36px;
   color: var(--green);
 }
 
 .support-card--todo {
-  border: 2px dashed #c9d2de;
+  border: 2px dashed #CBD0D6;
   background: transparent;
 }
 
@@ -2482,7 +2532,8 @@ button {
 }
 
 .way-card strong {
-  font-family: var(--font-display-stack);
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 20px;
 }
 
@@ -2561,7 +2612,7 @@ button {
   min-height: 50px;
   padding: 12px 14px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid #c9d2de;
+  border: 1.5px solid #CBD0D6;
   background: var(--paper);
   font-size: 16px;
 }
@@ -2688,7 +2739,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .contact-card {
@@ -2704,7 +2755,8 @@ button {
 
 .contact-card strong {
   margin-bottom: 8px;
-  font-family: var(--font-display-stack);
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 20px;
 }
 
@@ -2735,7 +2787,7 @@ button {
 
 .partner-card strong {
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 24px;
   line-height: 1.1;
 }
@@ -2991,7 +3043,7 @@ p,
   align-items: baseline;
   gap: 16px;
   padding: 14px 0;
-  border-bottom: 1px solid #22355c;
+  border-bottom: 1px solid #2A4258;
   color: var(--white);
   text-decoration: none;
 }
@@ -3003,16 +3055,16 @@ p,
 
 .menu-sheet__nr {
   min-width: 24px;
-  font-family: var(--font-display-stack);
-  font-weight: 700;
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
   font-size: 14px;
-  color: #8fa0bc;
+  color: #93A2B3;
 }
 
 .menu-sheet__label {
   flex: 1 1 auto;
   font-family: var(--font-display-stack);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(30px, 8.5vw, 44px);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -3370,7 +3422,8 @@ p,
   }
 
   .month-switcher__label strong {
-    font-family: var(--font-display-stack);
+    font-family: var(--font-sub-stack);
+  font-weight: 600;
     font-size: 17px;
   }
 
@@ -3542,7 +3595,7 @@ p,
 .lightbox__hint {
   display: none;
   font-size: 12px;
-  color: #8fa0bc;
+  color: #93A2B3;
 }
 
 @media (max-width: 767px) {
@@ -3892,4 +3945,142 @@ p,
     padding: 8px 12px;
     font-size: 13px;
   }
+}
+
+/* --- Branding: banda „CUPȘENI”, poza de grup din hero ------------------- */
+
+/* Banda cu cele patru sate: fiecare sat are stilul lui de literă. */
+.banda-sate {
+  overflow: hidden;
+  padding-block: 14px;
+  background: var(--navy-3);
+  border-bottom: 3px solid var(--sun);
+}
+
+.banda-sate__pista {
+  display: flex;
+  width: max-content;
+}
+
+.banda-sate__rand {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  font-size: clamp(30px, 4.4vw, 56px);
+  line-height: 1.15;
+}
+
+.banda-sate__element {
+  display: flex;
+  align-items: center;
+}
+
+.banda-sate__punct {
+  width: 0.2em;
+  height: 0.2em;
+  margin-inline: 0.55em;
+  border-radius: 999px;
+  background: var(--sun);
+}
+
+.banda-sate__sat {
+  white-space: nowrap;
+}
+
+/* Cupșeni: Poppins Bold, majuscule, plin. */
+.banda-sate__sat--cupseni {
+  font-family: var(--font-sub-stack);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+}
+
+/* Libotin: Times New Roman cursiv, majuscule, portocaliu. */
+.banda-sate__sat--libotin {
+  font-family: var(--font-display-stack);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--sun);
+}
+
+/* Ungureni: Poppins, majuscule rărite, doar conturul. */
+.banda-sate__sat--ungureni {
+  font-family: var(--font-sub-stack);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--sun);
+}
+
+/* Costeni: Times New Roman Bold, drept, majuscule. */
+.banda-sate__sat--costeni {
+  font-family: var(--font-display-stack);
+  font-weight: 700;
+  font-size: 1.08em;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .banda-sate__pista {
+    animation: banda-sate 42s linear infinite;
+  }
+}
+
+@keyframes banda-sate {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Poza de grup: cadru dreptunghiular, ca să încapă toți și muntele din spate. */
+.hero__photo--grup {
+  max-width: 580px;
+  aspect-ratio: 4 / 3;
+  object-position: 50% 50%;
+  border-radius: var(--radius-lg);
+}
+
+.hero__media--grup {
+  padding: 40px 32px 0 24px;
+}
+
+.hero__media--grup .hero__sun {
+  right: 0;
+}
+
+.hero__media--grup .hero__ring {
+  top: 96px;
+  left: 0;
+}
+
+.hero__media--grup .hero__sticker {
+  bottom: -36px;
+}
+
+@media (max-width: 767px) {
+  .hero__media--grup {
+    padding: 28px 16px 22px 10px;
+  }
+  .hero__media--grup .hero__sun {
+    width: 130px;
+  }
+  .hero__photo--grup {
+    max-width: 100%;
+    border-radius: var(--radius);
+  }
+  .hero__media--grup .hero__sticker {
+    left: 0;
+    bottom: -14px;
+  }
+}
+
+.story-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
 }

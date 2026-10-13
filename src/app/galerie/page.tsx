@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { SectionHeader } from "@/components/ui";
-import { albume } from "@/data/galerie";
+import { albume, detaliiAlbum } from "@/data/galerie";
 import { site } from "@/data/site";
 import { cuNumar } from "@/lib/luni";
 
@@ -49,7 +49,7 @@ export default function GaleriePage() {
                 </div>
                 <div className="album-card__body">
                   <span className="album-card__meta">
-                    {album.data} · {cuNumar(album.foto.length, "fotografie", "fotografii")}
+                    {[detaliiAlbum(album), cuNumar(album.foto.length, "fotografie", "fotografii")].filter(Boolean).join(" · ")}
                   </span>
                   <h2 className="h3">{album.titlu}</h2>
                   <p>{album.descriere}</p>

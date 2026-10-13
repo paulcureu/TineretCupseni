@@ -7,7 +7,7 @@ import { AlbumGrid } from "@/components/AlbumGrid";
 import { Icon } from "@/components/Icon";
 import { PageSkeleton } from "@/components/ui";
 import { getActivitate } from "@/data/activitati";
-import { albume, getAlbum } from "@/data/galerie";
+import { albume, detaliiAlbum, getAlbum } from "@/data/galerie";
 import { cuNumar } from "@/lib/luni";
 
 export function generateStaticParams() {
@@ -53,7 +53,7 @@ async function Album({ params }: { params: Promise<{ album: string }> }) {
       <div className="section-header">
         <div className="section-header__text">
           <span className="eyebrow">
-            {album.data} · {cuNumar(album.foto.length, "fotografie", "fotografii")}
+            {[detaliiAlbum(album), cuNumar(album.foto.length, "fotografie", "fotografii")].filter(Boolean).join(" · ")}
           </span>
           <h1 className="h1">{album.titlu}</h1>
           <p className="lead">{album.descriere}</p>

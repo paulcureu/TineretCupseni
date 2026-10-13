@@ -36,22 +36,22 @@ function html({ formular, subiect, campuri }: MesajFormular): string {
     .map(
       (c) => `
         <tr>
-          <td style="padding:10px 14px;border-bottom:1px solid #E1E6EE;color:#4A5568;font-size:14px;width:34%;vertical-align:top">${escape(c.eticheta)}</td>
-          <td style="padding:10px 14px;border-bottom:1px solid #E1E6EE;color:#14213D;font-size:15px;white-space:pre-wrap">${escape(c.valoare || "—")}</td>
+          <td style="padding:10px 14px;border-bottom:1px solid #E3E5E8;color:#4E5B69;font-size:14px;width:34%;vertical-align:top">${escape(c.eticheta)}</td>
+          <td style="padding:10px 14px;border-bottom:1px solid #E3E5E8;color:#1A2E40;font-size:15px;white-space:pre-wrap">${escape(c.valoare || "—")}</td>
         </tr>`,
     )
     .join("");
 
   return `<!doctype html>
 <html lang="ro">
-  <body style="margin:0;padding:24px;background:#FAFAF7;font-family:Arial,Helvetica,sans-serif">
-    <table role="presentation" width="100%" style="max-width:620px;margin:0 auto;background:#FFFFFF;border:1px solid #E1E6EE;border-radius:16px;overflow:hidden;border-collapse:separate">
-      <tr><td style="background:#14213D;padding:20px 24px;color:#FFFFFF">
-        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F4A53C;font-weight:bold">${escape(formular)}</div>
+  <body style="margin:0;padding:24px;background:#F9F8F6;font-family:Arial,Helvetica,sans-serif">
+    <table role="presentation" width="100%" style="max-width:620px;margin:0 auto;background:#FFFFFF;border:1px solid #E3E5E8;border-radius:16px;overflow:hidden;border-collapse:separate">
+      <tr><td style="background:#1A2E40;padding:20px 24px;color:#FFFFFF">
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#E89D35;font-weight:bold">${escape(formular)}</div>
         <div style="font-size:20px;font-weight:bold;margin-top:6px">${escape(subiect)}</div>
       </td></tr>
       <tr><td><table role="presentation" width="100%" style="border-collapse:collapse">${randuri}</table></td></tr>
-      <tr><td style="padding:16px 24px;color:#8391A7;font-size:12px">Trimis automat de pe site-ul Tineret Cupșeni.</td></tr>
+      <tr><td style="padding:16px 24px;color:#8794A3;font-size:12px">Trimis automat de pe site-ul Tineret Cupșeni.</td></tr>
     </table>
   </body>
 </html>`;

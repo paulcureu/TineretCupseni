@@ -22,7 +22,7 @@ export const directii: Directie[] = [
     nume: "Leadership & implicare",
     formulare: "[Formularea schimbării S1 din Fișa 3.]",
     icon: "oameni",
-    culori: { fundal: "#E1E7F2", text: "#14213D", punct: "#14213D", palid: "#F1F4F9" },
+    culori: { fundal: "#E1E7F2", text: "#1A2E40", punct: "#1A2E40", palid: "#F1F4F9" },
   },
   {
     id: "s2",
@@ -46,7 +46,7 @@ export const directii: Directie[] = [
     nume: "Sport & natură",
     formulare: "[Formularea schimbării S4 din Fișa 3.]",
     icon: "munte",
-    culori: { fundal: "#E3EFE5", text: "#1F4D29", punct: "#2F6B3A", palid: "#F1F7F2" },
+    culori: { fundal: "#E3EFE5", text: "#1E3F1A", punct: "#2D5A27", palid: "#F1F7F2" },
   },
   {
     id: "s5",
@@ -62,7 +62,7 @@ export const directii: Directie[] = [
     nume: "Solidaritate & târguri",
     formulare: "[Formularea schimbării S6 din Fișa 3.]",
     icon: "inima",
-    culori: { fundal: "#F9E1E8", text: "#8A1F45", punct: "#C23A68", palid: "#FDF2F5" },
+    culori: { fundal: "#F5E3E3", text: "#7E2122", punct: "#9E2A2B", palid: "#FBF1F1" },
   },
   {
     id: "s7",

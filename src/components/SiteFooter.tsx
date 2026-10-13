@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { navigatie, parteneri, site } from "@/data/site";
-import { Emblem } from "./Emblem";
+import { Logo } from "./Logo";
 import { SocialLinks } from "./SocialLinks";
 
 export function SiteFooter() {
@@ -11,8 +11,7 @@ export function SiteFooter() {
       <div className="container site-footer__grid">
         <div className="site-footer__brand">
           <div className="site-footer__name">
-            <Emblem id="subsol" size={60} />
-            <span>{site.nume}</span>
+            <Logo marime={64} />
           </div>
           <p>
             Grupul de inițiativă al tinerilor din {site.sate.slice(0, -1).join(", ")} și {site.sate.at(-1)} — Țara
@@ -38,6 +37,14 @@ export function SiteFooter() {
           <span className="site-footer__label">Cu sprijinul</span>
           <p className="site-footer__parteneri">{parteneri.map((p) => p.nume).join(" · ")}</p>
         </div>
+      </div>
+      <div className="container site-footer__anpc" aria-label="Protecția consumatorilor">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow noopener noreferrer">
+          <Image src="/anpc/anpc-sal.svg" alt="ANPC — Soluționarea alternativă a litigiilor" width={250} height={62} unoptimized />
+        </a>
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow noopener noreferrer">
+          <Image src="/anpc/anpc-sol.svg" alt="Soluționarea online a litigiilor" width={250} height={62} unoptimized />
+        </a>
       </div>
       <div className="container site-footer__bottom">
         <span>© 2026 {site.nume} · Ocrotiți de Șatra lui Pintea</span>

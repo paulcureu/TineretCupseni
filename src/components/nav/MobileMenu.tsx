@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { navigatie, site } from "@/data/site";
 import { CU_MISCARE, gsap, useGSAP } from "@/lib/gsap";
 import { directieNavigare, esteActiv } from "@/lib/navigare";
-import { Emblem } from "../Emblem";
+import { Logo } from "../Logo";
 import { Icon } from "../Icon";
 import { SocialLinks } from "../SocialLinks";
 import { useMenu } from "./MenuProvider";
@@ -77,11 +77,7 @@ export function MobileMenu() {
     >
       <div className="menu-sheet__top">
         <Link href="/" className="brand" onClick={() => inchide({ faraFocus: true })} transitionTypes={directieNavigare(pathname, "/")}>
-          <Emblem id="meniu" size={44} />
-          <span className="brand__text">
-            <span className="brand__name">{site.numeScurt}</span>
-            <span className="brand__tagline">{site.slogan}</span>
-          </span>
+          <Logo marime={46} />
         </Link>
         <button type="button" className="menu-sheet__close" onClick={() => inchide()} aria-label="Închide meniul">
           <Icon name="inchide" size={22} />

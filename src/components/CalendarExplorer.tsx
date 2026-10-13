@@ -120,7 +120,7 @@ export function CalendarExplorer({ initial = STARE_IMPLICITA }: { initial?: Star
 
         <div className="chip-row" role="group" aria-label="Filtrează după direcție">
           <button type="button" className="filter-chip" aria-pressed={directie === "toate"} onClick={() => actualizeaza({ directie: "toate" })}>
-            <span className="chip__dot" style={{ background: "#8391A7" }} aria-hidden="true" />
+            <span className="chip__dot" style={{ background: "#8794A3" }} aria-hidden="true" />
             Toate direcțiile <span className="filter-chip__count">{activitati.length}</span>
           </button>
           {directii.map((d) => (

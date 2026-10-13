@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const moduri: { titlu: string; text: string; icon: IconName; fundal: string; culoare: string }[] = [
-  { titlu: "Voluntar la evenimente", text: "Montăm, primim oaspeții, facem poze, strângem după.", icon: "inima", fundal: "#E3EFE5", culoare: "#1F4D29" },
-  { titlu: "Grupul de inițiativă", text: "Vino la întâlnirea lunară și decide cu noi ce facem.", icon: "oameni", fundal: "#E1E7F2", culoare: "#14213D" },
+  { titlu: "Voluntar la evenimente", text: "Montăm, primim oaspeții, facem poze, strângem după.", icon: "inima", fundal: "#E3EFE5", culoare: "#1E3F1A" },
+  { titlu: "Grupul de inițiativă", text: "Vino la întâlnirea lunară și decide cu noi ce facem.", icon: "oameni", fundal: "#E1E7F2", culoare: "#1A2E40" },
   { titlu: "Propune o activitate", text: "Ai o idee pentru satul tău? Te ajutăm s-o transformi în proiect.", icon: "bec", fundal: "#FDEBD0", culoare: "#7A4300" },
-  { titlu: "Partener sau sponsor", text: "Un spațiu, produse locale, echipament sau sprijin pentru o seară.", icon: "casa", fundal: "#F9E1E8", culoare: "#8A1F45" },
+  { titlu: "Partener sau sponsor", text: "Un spațiu, produse locale, echipament sau sprijin pentru o seară.", icon: "casa", fundal: "#F5E3E3", culoare: "#7E2122" },
 ];
 
 export default function ImplicaPage() {

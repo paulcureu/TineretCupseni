@@ -7,7 +7,7 @@ import { CalendarDinUrl, CalendarExplorer } from "@/components/CalendarExplorer"
 import { Icon } from "@/components/Icon";
 import { activitati } from "@/data/activitati";
 import { directii } from "@/data/directii";
-import { albume } from "@/data/galerie";
+import { detaliiAlbum, evenimente } from "@/data/galerie";
 
 export const metadata: Metadata = {
   title: "Calendarul activităților 2027",
@@ -50,12 +50,12 @@ export default function CalendarPage() {
         <div className="container section section--tight stack-lg">
           <section className="past-strip" aria-label="Activități care au avut loc">
             <span className="past-strip__label">Am început deja</span>
-            {albume.map((album) => (
+            {evenimente.map((album) => (
               <Link key={album.slug} href={`/galerie/${album.slug}`} className="past-strip__item" transitionTypes={["nav-forward"]}>
                 <Image src={album.coperta.src} alt="" width={album.coperta.w} height={album.coperta.h} sizes="56px" />
                 <span>
                   <strong>{album.titlu}</strong>
-                  <small>{album.data} · A avut loc</small>
+                  <small>{detaliiAlbum(album)}</small>
                 </span>
               </Link>
             ))}

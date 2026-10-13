@@ -170,7 +170,6 @@ export function AlbumGrid({ foto, titlu }: { foto: Foto[]; titlu: string }) {
               <Icon name="dreapta" size={24} />
             </button>
           </div>
-          <p className="lightbox__caption">{curenta.alt}</p>
           <p className="lightbox__hint" aria-hidden="true">
             Glisează pentru următoarea · trage în jos ca să închizi
           </p>

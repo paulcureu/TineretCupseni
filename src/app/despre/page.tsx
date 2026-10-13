@@ -15,10 +15,11 @@ export const metadata: Metadata = {
   description: "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni: povestea noastră, echipa și locul de unde venim.",
 };
 
+// Doar momentele noastre; etapele concursului nu apar pe site.
 const drum = [
-  { gata: true, data: "Septembrie 2026", titlu: "Prima întâlnire a grupului de inițiativă", text: "Ne-am adunat prima dată ca echipă și am făcut primele fotografii ale grupului." },
-  { gata: true, data: "28 septembrie 2026", titlu: "Prima seară de film", text: "Găzduiți de Theo Events, cu popcorn de la Brutăria Aur și videoproiectorul Primăriei Comunei Cupșeni." },
-  { gata: true, data: "[Data anunțului]", titlu: "Finaliști — Satul European de Tineret 2027", text: `Candidatura noastră, cu ${activitati.length} de activități pentru 2027, a intrat în finală.` },
+  { gata: true, data: "Pensiunea Țara lui Pintea", titlu: "Prima întâlnire a grupului de inițiativă", text: "Ne-am adunat prima dată ca grup de inițiativă, la Pensiunea Țara lui Pintea din Cupșeni." },
+  { gata: true, data: "20 septembrie 2026", titlu: "Întâlnirea cu tinerii din comună", text: "Ne-am întâlnit cu tinerii din comună pe Valea Pietrelor." },
+  { gata: true, data: "28 septembrie 2026", titlu: "Prima seară de film", text: "Ediția-pilot a Serilor tinerilor, la Theo Events, cu sprijinul autorităților locale." },
   { gata: false, data: "Ianuarie 2027", titlu: "Întâlnirea de lansare „Cupșeni – Sat European de Tineret 2027”", text: "Prezentăm programul și chemăm tinerii din toate cele patru sate să se alăture." },
   { gata: false, data: "Decembrie 2027", titlu: "Evaluarea anului și planul tinerilor pentru 2028", text: "Ce am realizat, ce continuăm și ce propun tinerii pentru anul următor." },
 ];
@@ -41,8 +42,8 @@ export default function DesprePage() {
             </p>
           </div>
           <figure className="wide-photo">
-            <Image src="/foto/intalnire/decapotabila-3.jpg" alt="Mașina decapotabilă cu echipa, pe un drum de țară" width={1600} height={900} sizes="(max-width: 1248px) 100vw, 1200px" loading="eager" />
-            <figcaption>Prima întâlnire a echipei · septembrie 2026</figcaption>
+            <Image src="/foto/tineri/tineri-11.jpg" alt="Fotografia de grup cu tinerii de la întâlnirea pe Valea Pietrelor" width={1440} height={810} sizes="(max-width: 1248px) 100vw, 1200px" loading="eager" />
+            <figcaption>Întâlnirea cu tinerii din comună · Valea Pietrelor</figcaption>
           </figure>
         </section>
 
@@ -55,8 +56,8 @@ export default function DesprePage() {
           </div>
           <div className="split__side prose">
             <p>
-              Ne-am strâns prima dată ca echipă în septembrie 2026. Pe 28 septembrie am organizat prima seară de film, cu popcorn pentru
-              toată lumea și cu copii și părinți în sală.
+              Ne-am strâns prima dată ca grup de inițiativă la Pensiunea Țara lui Pintea din Cupșeni. Pe 20 septembrie ne-am întâlnit cu
+              tinerii din comună pe Valea Pietrelor, iar pe 28 septembrie am organizat prima seară de film, cu copii și părinți în sală.
             </p>
             <p>
               Cu candidatura pentru Satul European de Tineret 2027 am ajuns în finală. Planul nostru: {activitati.length} de activități în 12

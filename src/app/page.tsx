@@ -3,6 +3,7 @@ import { MobileCarousel } from "@/components/MobileCarousel";
 import { PageShell } from "@/components/PageShell";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
+import { BandaSate } from "@/components/BandaSate";
 import { BandaDealuri } from "@/components/Peisaj";
 import { SocialLinks } from "@/components/SocialLinks";
 import { VideoYouTube } from "@/components/VideoYouTube";
@@ -10,7 +11,7 @@ import { ArrowLink, SectionHeader, StatTile } from "@/components/ui";
 import { activitati, activitatiDinLuna, getActivitate } from "@/data/activitati";
 import { directii, getDirectie } from "@/data/directii";
 import { echipa } from "@/data/echipa";
-import { albume } from "@/data/galerie";
+import { detaliiAlbum, evenimente } from "@/data/galerie";
 import { site } from "@/data/site";
 import { cuNumar, LUNI, pluralActivitati } from "@/lib/luni";
 
@@ -45,8 +46,8 @@ export default function AcasaPage() {
                 Tinerii din comuna <span className="text-sun">Cupșeni</span>
               </h1>
               <p className="hero__lead">
-                Patru sate, o singură comunitate. În 2027 aducem acasă {activitati.length} de activități — de la ateliere de
-                meșteșuguri și seri de film la Noaptea Perseidelor.
+                Patru sate, o singură comunitate. În 2027 aducem acasă {activitati.length} de activități — de la ateliere
+                meșteșugărești, activități sportive și seri de film, la Festivalul Tinerilor.
               </p>
               <div className="button-row">
                 <Link href="/calendar" className="btn btn--sun btn--lg">
@@ -62,32 +63,33 @@ export default function AcasaPage() {
                 <span>— Țara Lăpușului, Maramureș</span>
               </p>
             </div>
-            <div className="hero__media">
+            <div className="hero__media hero__media--grup">
               <div className="hero__sun" aria-hidden="true" />
               <div className="hero__ring" aria-hidden="true" />
               <Image
-                src="/foto/intalnire/decapotabila-1.jpg"
-                alt="Patru tinere într-o mașină decapotabilă, salutând, pe un drum din comună"
-                width={900}
-                height={1600}
+                src="/foto/grup/prima-intalnire-apus.jpg"
+                alt="Grupul de inițiativă la apus, cu muntele în spate"
+                width={1599}
+                height={900}
                 loading="eager"
                 fetchPriority="high"
-                sizes="(max-width: 900px) 90vw, 440px"
-                className="hero__photo"
+                sizes="(max-width: 900px) 90vw, 580px"
+                className="hero__photo hero__photo--grup"
               />
               <div className="hero__sticker">
                 <span className="hero__sticker-icon">
                   <Icon name="oameni" size={22} />
                 </span>
                 <span>
-                  <strong>Prima întâlnire</strong>
-                  <small>septembrie 2026</small>
+                  <strong>Grupul de inițiativă</strong>
+                  <small>Pensiunea Țara lui Pintea</small>
                 </span>
               </div>
             </div>
           </div>
           <BandaDealuri />
         </section>
+        <BandaSate />
 
         <section className="container stats" aria-label="Programul în cifre">
           <StatTile numar={activitati.length}>activități în 2027</StatTile>
@@ -144,7 +146,7 @@ export default function AcasaPage() {
           <div className="section container stack-lg">
             <SectionHeader id="inceput-titlu" eyebrow="Toamna lui 2026" title="Am început deja" />
             <div className="story-grid">
-              {albume.map((album) => (
+              {evenimente.map((album) => (
                 <Link key={album.slug} href={`/galerie/${album.slug}`} className="story-card" transitionTypes={["nav-forward"]}>
                   <div className="story-card__photos">
                     {album.foto.slice(0, 3).map((f, i) => (
@@ -152,7 +154,7 @@ export default function AcasaPage() {
                     ))}
                   </div>
                   <div className="story-card__body">
-                    <span className="story-card__date">{album.data}</span>
+                    <span className="story-card__date">{detaliiAlbum(album)}</span>
                     <h3 className="h3">{album.titlu}</h3>
                     <p>{album.descriere}</p>
                     <span className="arrow-link">

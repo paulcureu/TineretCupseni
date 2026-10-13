@@ -8,7 +8,6 @@ export type Editie = {
   data: string;
   text: string;
   album: string;
-  multumiri?: string;
 };
 
 export type Activitate = {
@@ -42,6 +41,14 @@ export const activitati: Activitate[] = [
     descriere: "Campanie permanentă de informare, promovare și mobilizare a tinerilor.",
     ce: ["Informare", "Promovare", "Mobilizarea tinerilor din Cupșeni, Costeni, Libotin și Ungureni"],
     luni: TOT_ANUL,
+    editii: [
+      {
+        titlu: "Întâlnirea cu tinerii din comună",
+        data: "20 septembrie 2026",
+        text: "Prima întâlnire cu tinerii din comună, pe Valea Pietrelor.",
+        album: "intalnirea-cu-tinerii",
+      },
+    ],
   },
   {
     nr: 3,
@@ -55,10 +62,8 @@ export const activitati: Activitate[] = [
       {
         titlu: "Prima seară de film",
         data: "28 septembrie 2026",
-        text: "Ediția-pilot, găzduită de Theo Events, cu popcorn de la Brutăria Aur și videoproiectorul Primăriei Comunei Cupșeni. Ne bucurăm că ați fost alături de noi!",
+        text: "Ediția-pilot a avut loc la Theo Events, cu sprijinul autorităților locale. Ne bucurăm că ați fost alături de noi!",
         album: "seara-de-film",
-        multumiri:
-          "Ionelei Buda (Theo Events), care ne-a fost gazdă și ne-a ajutat cu popcornul · Brutăriei Aur (Victoria Gzd), pentru popcorn · Primăriei Comunei Cupșeni, pentru videoproiector și mașina de popcorn · domnului Constantin Laurențiu Dragomir, pentru sprijin și încurajare.",
       },
     ],
   },
@@ -302,10 +307,10 @@ export const activitati: Activitate[] = [
     luni: TOT_ANUL,
     editii: [
       {
-        titlu: "Prima întâlnire a echipei",
-        data: "Septembrie 2026",
-        text: "Ne-am adunat prima dată ca echipă și am făcut primele fotografii ale grupului.",
-        album: "prima-intalnire",
+        titlu: "Prima întâlnire a grupului de inițiativă",
+        data: "Pensiunea Țara lui Pintea, Cupșeni",
+        text: "Prima noastră întâlnire ca grup de inițiativă, la Pensiunea Țara lui Pintea din Cupșeni.",
+        album: "grupul-de-initiativa",
       },
     ],
   },

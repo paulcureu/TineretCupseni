@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { navigatie, site } from "@/data/site";
-import { Emblem } from "./Emblem";
+import { Logo } from "./Logo";
 import { MenuToggle } from "./nav/MenuToggle";
 import { ScrollHeader } from "./nav/ScrollHeader";
 import { NavLinks } from "./NavLinks";
@@ -24,12 +24,8 @@ export function SiteHeader() {
   return (
     <ScrollHeader>
       <div className="container site-header__inner">
-        <Link href="/" className="brand">
-          <Emblem id="antet" />
-          <span className="brand__text">
-            <span className="brand__name">{site.numeScurt}</span>
-            <span className="brand__tagline">{site.slogan}</span>
-          </span>
+        <Link href="/" className="brand" aria-label={`${site.numeScurt} — acasă`}>
+          <Logo />
         </Link>
         <nav aria-label="Navigare principală" className="site-nav">
           <Suspense fallback={<NavLinksFaraStare />}>

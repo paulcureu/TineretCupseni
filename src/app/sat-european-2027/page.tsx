@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "@/components/Icon";
+import { Icon, type IconName } from "@/components/Icon";
 import { SectionHeader, StatTile } from "@/components/ui";
 import { VideoYouTube } from "@/components/VideoYouTube";
 import { activitati } from "@/data/activitati";
@@ -15,15 +15,24 @@ export const metadata: Metadata = {
   description: `Cupșeni este finalist pentru titlul de Sat European de Tineret 2027. Candidatura noastră: ${activitati.length} de activități, 12 luni, 4 sate, 7 schimbări.`,
 };
 
-const etape = [
-  { nr: "01", titlu: "Candidatura depusă", data: "[Data]", stare: "gata" },
-  { nr: "02", titlu: "Finaliști", data: "[Data anunțului]", stare: "gata" },
-  { nr: "03", titlu: "[Etapa finală / jurizarea]", data: "[Perioada]", stare: "acum" },
-  { nr: "04", titlu: "Lansarea programului în comună", data: "Ianuarie 2027", stare: "urmeaza" },
-  { nr: "05", titlu: "Evaluarea anului și planul pentru 2028", data: "Decembrie 2027", stare: "urmeaza" },
-] as const;
-
-const eticheteStare = { gata: "Realizat", acum: "Acum", urmeaza: "Urmează" } as const;
+// Ce este programul, pe scurt (după europeanyouthvillage.eu). Fără etapele și datele concursului.
+const principii: { titlu: string; text: string; icon: IconName }[] = [
+  {
+    titlu: "Tinerii conduc",
+    text: "Tinerii din mediul rural nu sunt doar beneficiari, ci co-creatori, lideri și parteneri în deciziile comunității lor.",
+    icon: "oameni",
+  },
+  {
+    titlu: "Un an de activități",
+    text: "Satul care primește titlul are 12 luni în care grupul de inițiativă pune în practică calendarul propus, împreună cu ceilalți tineri.",
+    icon: "calendar",
+  },
+  {
+    titlu: "Împreună cu comunitatea",
+    text: "Autoritățile locale sunt parteneri, iar satul devine un loc în care tinerii se pot dezvolta și știu că vocea lor contează.",
+    icon: "casa",
+  },
+];
 
 export default function SatEuropeanPage() {
   return (
@@ -43,7 +52,8 @@ export default function SatEuropeanPage() {
                 sate învață, construiesc și sărbătoresc împreună.
               </p>
               <p className="hero__lead hero__lead--soft">
-                [1–2 propoziții despre program: cine îl organizează, ce primește satul câștigător, când se anunță rezultatul.]
+                Satul European de Tineret este titlul acordat prin programul European Youth Village comunelor în care tinerii aduc
+                schimbarea. Nu e un premiu pentru cea mai dezvoltată comună, ci o șansă de creștere pentru tineri și pentru comunitatea lor.
               </p>
             </div>
             <div className="logo-card logo-card--large">
@@ -120,27 +130,36 @@ export default function SatEuropeanPage() {
           </div>
         </section>
 
-        <section className="band band--sky" aria-labelledby="etape-titlu">
+        <section className="band band--sky" aria-labelledby="program-titlu">
           <div className="container section stack-lg">
-            <SectionHeader id="etape-titlu" eyebrow="Etapele" title="Unde suntem acum" />
-            <ol className="auto-grid auto-grid--200">
-              {etape.map((e) => (
-                <li key={e.nr} className={`step-card step-card--${e.stare}`}>
-                  <span className="step-card__top">
-                    <span className="step-card__nr">{e.nr}</span>
-                    <span className="step-card__pill">{eticheteStare[e.stare]}</span>
+            <SectionHeader
+              id="program-titlu"
+              eyebrow="Despre program"
+              title="Ce înseamnă să fii Sat European de Tineret"
+              lead="European Youth Village vrea ca satele din România și din Europa să devină locuri vii, conduse de tineri, în care participarea și ideile lor contează."
+              action={
+                <a href="https://europeanyouthvillage.eu/" className="btn btn--navy" target="_blank" rel="noopener noreferrer">
+                  europeanyouthvillage.eu <Icon name="extern" size={18} />
+                </a>
+              }
+            />
+            <ul className="auto-grid auto-grid--260">
+              {principii.map((p) => (
+                <li key={p.titlu} className="way-card">
+                  <span className="icon-tile icon-tile--sm" style={{ background: "#E5E9EE", color: "#1A2E40" }}>
+                    <Icon name={p.icon} size={22} />
                   </span>
-                  <strong>{e.titlu}</strong>
-                  <span className="step-card__date">{e.data}</span>
+                  <strong>{p.titlu}</strong>
+                  <span>{p.text}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </section>
 
         <section className="container section stack-lg" aria-labelledby="sustine-titlu">
           <SectionHeader id="sustine-titlu" eyebrow="Cum ne poți susține" title="Fiecare om din comună contează" />
-          <ol className="auto-grid auto-grid--250">
+          <ol className="auto-grid auto-grid--300">
             <li>
               <Link href="/calendar" className="support-card">
                 <span className="support-card__nr">1</span>
@@ -161,13 +180,6 @@ export default function SatEuropeanPage() {
                 <strong>Devino voluntar sau partener</strong>
                 <span>Cu timp, idei, un spațiu sau produse locale.</span>
               </Link>
-            </li>
-            <li>
-              <div className="support-card support-card--todo">
-                <span className="support-card__nr">4</span>
-                <strong>[Votează Cupșeni]</strong>
-                <span>[Doar dacă programul are vot public: linkul de vot și data-limită.]</span>
-              </div>
             </li>
           </ol>
         </section>

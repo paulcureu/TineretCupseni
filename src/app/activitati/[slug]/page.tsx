@@ -178,17 +178,6 @@ async function Activitate({ params }: { params: Promise<{ slug: string }> }) {
                 <Image key={f.src} src={f.src} alt={f.alt} width={f.w} height={f.h} sizes="(max-width: 600px) 50vw, 200px" />
               ))}
             </div>
-            {editie.multumiri ? (
-              <div className="thanks">
-                <span className="thanks__icon">
-                  <Icon name="inima" size={22} />
-                </span>
-                <div>
-                  <h3 className="h4">Mulțumim!</h3>
-                  <p>{editie.multumiri}</p>
-                </div>
-              </div>
-            ) : null}
           </div>
         </section>
       ) : null}

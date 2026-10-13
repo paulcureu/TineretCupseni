@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
+import { Poppins, Tinos } from "next/font/google";
 import { Suspense } from "react";
 import { MenuProvider } from "@/components/nav/MenuProvider";
 import { MobileDock } from "@/components/nav/MobileDock";
@@ -9,15 +9,20 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
-  variable: "--font-display",
+// Branding: titluri în Times New Roman, subtitluri în Poppins SemiBold, text în Poppins Light.
+// Tinos are aceleași dimensiuni ca Times New Roman și e folosit doar unde Times lipsește (ex. Android).
+const titluri = Tinos({
+  variable: "--font-tinos",
   subsets: ["latin", "latin-ext"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  preload: false,
 });
 
-const body = Instrument_Sans({
-  variable: "--font-body",
+const text = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -39,13 +44,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14213D",
+  themeColor: "#1A2E40",
   viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${display.variable} ${body.variable}`} data-scroll-behavior="smooth">
+    <html lang="ro" className={`${titluri.variable} ${text.variable}`} data-scroll-behavior="smooth">
       <body>
         <MenuProvider>
           <a href="#continut" className="skip-link">

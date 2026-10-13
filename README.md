@@ -57,6 +57,10 @@ Fără cheie, în dezvoltare formularul apare doar în terminal, iar în produc�
 
 ## Poze
 
+- `public/brand/` — simbolul din logo (din folderul de branding). Paleta și fonturile sunt în `src/app/globals.css` (`--navy`, `--sun`, `--green`, `--red`, `--paper`; Times New Roman pentru titluri, Poppins pentru text).
+- `public/foto/grup/` — prima întâlnire a grupului de inițiativă (Pensiunea Țara lui Pintea).
+- `public/foto/tineri/` — întâlnirea cu tinerii din comună (20 septembrie 2026, Valea Pietrelor).
+- `public/anpc/` — pictogramele ANPC SAL și SOL din subsol (din `etamade-com/anpc-sal-sol-logo`, licență MIT).
 - `public/foto/intalnire/` — prima întâlnire a echipei (septembrie 2026), din folderul „Poze prima intalnire”.
 - `public/foto/film/` — prima seară de film (28 septembrie 2026): 30 de poze din folderul „Poze film” și 5 din postarea de pe Facebook.
 - `public/foto/echipa/` — portretele grupului de inițiativă.
