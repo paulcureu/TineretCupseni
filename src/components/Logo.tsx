@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+const LITERE = [..."CUPȘENI"];
+
 /**
  * Logo-ul Tineret Cupșeni, ca în branding: simbolul (Șatra lui Pintea, soarele,
  * bradul și drumul), „Tineret” în Times New Roman și „CUPȘENI” în Poppins, spațiat.
@@ -14,7 +16,15 @@ export function Logo({ marime = 52, faraText = false }: { marime?: number; faraT
       {faraText ? null : (
         <span className="logo__text">
           <span className="logo__tineret">Tineret</span>
-          <span className="logo__cupseni">Cupșeni</span>
+          <span className="logo__cupseni">
+            <span className="visually-hidden">Cupșeni</span>
+            {/* Literele sunt întinse pe toată lățimea lui „Tineret”, ca în logo. */}
+            {LITERE.map((litera, i) => (
+              <span key={i} aria-hidden="true">
+                {litera}
+              </span>
+            ))}
+          </span>
         </span>
       )}
     </span>

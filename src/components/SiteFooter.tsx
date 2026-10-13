@@ -14,7 +14,7 @@ export function SiteFooter() {
             <Logo marime={64} />
           </div>
           <p>
-            Grupul de inițiativă al tinerilor din {site.sate.slice(0, -1).join(", ")} și {site.sate.at(-1)} — Țara
+            Grupul de inițiativă al tinerilor din {site.sate.slice(0, -1).join(", ")} și {site.sate.at(-1)}, din Țara
             Lăpușului, județul Maramureș.
           </p>
           <SocialLinks varianta="iconite" />
@@ -40,7 +40,7 @@ export function SiteFooter() {
       </div>
       <div className="container site-footer__anpc" aria-label="Protecția consumatorilor">
         <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow noopener noreferrer">
-          <Image src="/anpc/anpc-sal.svg" alt="ANPC — Soluționarea alternativă a litigiilor" width={250} height={62} unoptimized />
+          <Image src="/anpc/anpc-sal.svg" alt="ANPC: Soluționarea alternativă a litigiilor" width={250} height={62} unoptimized />
         </a>
         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow noopener noreferrer">
           <Image src="/anpc/anpc-sol.svg" alt="Soluționarea online a litigiilor" width={250} height={62} unoptimized />

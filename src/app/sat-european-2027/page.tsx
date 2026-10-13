@@ -173,7 +173,7 @@ export default function SatEuropeanPage() {
               <a href={site.social.instagram} className="support-card" target="_blank" rel="noopener noreferrer">
                 <span className="support-card__nr">2</span>
                 <strong>Distribuie ce postăm</strong>
-                <span>Pe Facebook, Instagram și TikTok — @tineret.cupseni.</span>
+                <span>Pe Facebook, Instagram și TikTok: @tineret.cupseni.</span>
               </a>
             </li>
             <li>

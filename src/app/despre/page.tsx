@@ -40,7 +40,7 @@ export default function DesprePage() {
             </div>
             <p className="lead section-header__aside">
               Un grup de inițiativă care vrea ca în Cupșeni, Costeni, Libotin și Ungureni să fie mereu ceva de făcut, de învățat și de
-              sărbătorit — împreună.
+              sărbătorit, împreună.
             </p>
           </div>
           <figure className="wide-photo">
@@ -97,7 +97,7 @@ export default function DesprePage() {
             id="echipa-titlu"
             eyebrow="Grupul de inițiativă"
             title="Echipa"
-            lead="Ne vedem în fiecare lună ca să planificăm activitățile împreună — și oricine din comună poate veni la întâlnire."
+            lead="Ne vedem în fiecare lună ca să planificăm activitățile împreună, iar oricine din comună poate veni la întâlnire."
           />
           <MobileCarousel className="auto-grid auto-grid--260" label="Echipa" latime="74%">
             {echipa.map((m) => (
@@ -162,7 +162,7 @@ export default function DesprePage() {
                 noastră: muntele, soarele care răsare, bradul și drumul care leagă satele.
               </p>
               <p className="lead lead--on-dark">
-                Vrem să ducem mai departe poveștile locului — la focul de tabără „Legende sub stele”, la șezători și la sărbătorile câmpenești.
+                Vrem să ducem mai departe poveștile locului: la focul de tabără „Legende sub stele”, la șezători și la sărbătorile câmpenești.
               </p>
             </div>
             <div className="split__side">

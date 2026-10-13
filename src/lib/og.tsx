@@ -179,7 +179,12 @@ async function deseneaza({ eticheta, titlu, titluEvidentiat, subtitlu, foto, acc
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontFamily: "Tinos", fontWeight: 400, fontSize: 38, lineHeight: 1, color: "#FFFFFF" }}>Tineret</span>
-              <span style={{ marginTop: 6, fontSize: 15, fontWeight: 600, letterSpacing: 4.6, color: CULORI.sun }}>CUPȘENI</span>
+              {/* Ca în logo: literele din „CUPȘENI” se întind pe toată lățimea lui „Tineret”. */}
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6, fontSize: 18, color: CULORI.sun }}>
+                {[..."CUPȘENI"].map((litera, i) => (
+                  <span key={i}>{litera}</span>
+                ))}
+              </div>
             </div>
           </div>
           <span style={{ fontSize: 22, fontWeight: 300, color: CULORI.text }}>{new URL(site.url).host}</span>

@@ -24,7 +24,7 @@ export function SiteHeader() {
   return (
     <ScrollHeader>
       <div className="container site-header__inner">
-        <Link href="/" className="brand" aria-label={`${site.numeScurt} — acasă`}>
+        <Link href="/" className="brand" aria-label={`${site.numeScurt}, pagina principală`}>
           <Logo />
         </Link>
         <nav aria-label="Navigare principală" className="site-nav">

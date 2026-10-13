@@ -21,7 +21,7 @@ export async function generateMetadata(props: PageProps<"/galerie/[album]">): Pr
   const album = getAlbum(slug);
   if (!album) return {};
   return metadatePagina({
-    titlu: `${album.titlu} — Galerie foto`,
+    titlu: `${album.titlu} · Galerie foto`,
     descriere: [album.descriere, detaliiAlbum(album)].filter(Boolean).join(" "),
     cale: `/galerie/${album.slug}`,
   });

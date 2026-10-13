@@ -9,7 +9,7 @@ export const site = {
     "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni. Finaliști Satul European de Tineret 2027, cu 33 de activități pentru tot anul.",
   // Adresa publică. Se poate schimba din NEXT_PUBLIC_SITE_URL (de ex. după ce aveți un domeniu .ro).
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://tineret-cupseni.vercel.app",
-  email: "[adresa de e-mail]",
+  email: "tineret.cupseni@gmail.com",
   locatie: "Comuna Cupșeni, județul Maramureș",
   sate: ["Cupșeni", "Costeni", "Libotin", "Ungureni"],
   social: {
@@ -39,7 +39,7 @@ export const navigatie = [
   { href: "/sat-european-2027", eticheta: "Satul European 2027" },
 ] as const;
 
-export const parteneri = [
+export const parteneri: { nume: string; contributie?: string }[] = [
   {
     nume: "Theo Events",
     contributie: "Ne-a fost gazdă la prima seară de film și ne-a ajutat cu popcornul.",
@@ -52,7 +52,12 @@ export const parteneri = [
     nume: "Primăria Comunei Cupșeni",
     contributie: "Ne-a împrumutat videoproiectorul și mașina de popcorn.",
   },
-] as const;
+  { nume: "Podina Resort" },
+  {
+    nume: "Pensiunea Țara lui Pintea",
+    contributie: "Ne-a găzduit la prima întâlnire a grupului de inițiativă.",
+  },
+];
 
 export const sate = [
   { nume: "Cupșeni", eticheta: "reședința comunei", text: "[O frază despre sat: un loc, un om, o tradiție.]" },

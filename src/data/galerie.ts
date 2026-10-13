@@ -28,7 +28,7 @@ const inalt = (src: string, alt: string): Foto => ({ src, alt, w: 810, h: 1440 }
 
 // Prima întâlnire a grupului de inițiativă — Pensiunea Țara lui Pintea, Cupșeni.
 const fotoGrup: Foto[] = [
-  { src: "/foto/grup/prima-intalnire-apus.jpg", alt: "Grupul de inițiativă la apus, cu muntele în spate", w: 1599, h: 900 },
+  { src: "/foto/grup/grupul-de-initiativa.jpg", alt: "Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara lui Pintea", w: 2000, h: 1126 },
   { src: "/foto/grup/grup-01.jpg", alt: "Grupul de inițiativă în jurul mesei, sub costumele populare de pe perete", w: 975, h: 549 },
   { src: "/foto/grup/grup-02.jpg", alt: "Discuții la masă, în curtea pensiunii", w: 975, h: 549 },
   lat("/foto/grup/grup-03.jpg", "Planificăm împreună, la masa din curte"),

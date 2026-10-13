@@ -19,7 +19,7 @@ import { cuNumar, LUNI, pluralActivitati } from "@/lib/luni";
 import { absolut, metadatePagina } from "@/lib/seo";
 
 export const metadata: Metadata = metadatePagina({
-  titlu: `${site.nume} — Satul European de Tineret 2027`,
+  titlu: `${site.nume} · Satul European de Tineret 2027`,
   descriere: site.descriere,
   cale: "/",
 });
@@ -33,9 +33,10 @@ const organizatie = {
   alternateName: site.numeScurt,
   url: absolut("/"),
   logo: absolut("/brand/logo-512.png"),
-  image: absolut("/foto/grup/prima-intalnire-apus.jpg"),
+  image: absolut("/foto/grup/grupul-de-initiativa.jpg"),
   description: site.descriere,
   slogan: site.slogan,
+  email: site.email,
   sameAs: Object.values(site.social),
   address: { "@type": "PostalAddress", addressLocality: "Cupșeni", addressRegion: "Maramureș", addressCountry: "RO" },
   areaServed: site.sate.map((sat) => ({ "@type": "Place", name: `${sat}, comuna Cupșeni, Maramureș` })),
@@ -84,7 +85,7 @@ export default function AcasaPage() {
                 Tinerii din comuna <span className="text-sun">Cupșeni</span>
               </h1>
               <p className="hero__lead">
-                Patru sate, o singură comunitate. În 2027 aducem acasă {activitati.length} de activități — de la ateliere
+                Patru sate, o singură comunitate. În 2027 aducem acasă {activitati.length} de activități: de la ateliere
                 meșteșugărești, activități sportive și seri de film, la Festivalul Tinerilor.
               </p>
               <div className="button-row">
@@ -98,17 +99,18 @@ export default function AcasaPage() {
               <p className="hero__villages">
                 <Icon name="pin" size={18} />
                 <strong>{site.sate.join(" · ")}</strong>
-                <span>— Țara Lăpușului, Maramureș</span>
+                <span className="hero__villages-sep" aria-hidden="true" />
+                <span>Țara Lăpușului, Maramureș</span>
               </p>
             </div>
             <div className="hero__media hero__media--grup">
               <div className="hero__sun" aria-hidden="true" />
               <div className="hero__ring" aria-hidden="true" />
               <Image
-                src="/foto/grup/prima-intalnire-apus.jpg"
-                alt="Grupul de inițiativă la apus, cu muntele în spate"
-                width={1599}
-                height={900}
+                src="/foto/grup/grupul-de-initiativa.jpg"
+                alt="Grupul de inițiativă în fața unei case tradiționale din lemn, la Pensiunea Țara lui Pintea"
+                width={2000}
+                height={1126}
                 loading="eager"
                 fetchPriority="high"
                 sizes="(max-width: 900px) 90vw, 580px"
@@ -151,7 +153,7 @@ export default function AcasaPage() {
             id="an-titlu"
             eyebrow="Calendarul 2027"
             title="Un an întreg, lună de lună"
-            lead="În fiecare lună se întâmplă ceva în comună. Iată câte un moment de reper pentru fiecare lună — restul le găsești în calendar."
+            lead="În fiecare lună se întâmplă ceva în comună. Iată câte un moment de reper pentru fiecare lună. Restul le găsești în calendar."
             action={
               <Link href="/calendar" className="btn btn--navy">
                 Toate cele {activitati.length} de activități <Icon name="sageata" size={18} />
@@ -228,7 +230,7 @@ export default function AcasaPage() {
                     <span className="direction-card__examples">
                       {lista
                         .slice(0, 3)
-                        .map((a) => a.titlu.split(" — ")[0])
+                        .map((a) => a.titlu.split(/: | „/)[0])
                         .join(" · ")}
                     </span>
                   </Link>
@@ -275,7 +277,7 @@ export default function AcasaPage() {
             <div className="split__main stack">
               <span className="eyebrow text-sun">Satul European de Tineret 2027</span>
               <h2 id="eyv-titlu" className="h2">
-                Cupșeni — finalist pentru titlul de Sat European de Tineret
+                Comuna Cupșeni: finalistă pentru titlul de Sat European de Tineret
               </h2>
               <p className="lead lead--on-dark">
                 Am propus un an cu {activitati.length} de activități pentru tinerii din cele patru sate ale comunei. Acum

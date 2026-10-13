@@ -7,9 +7,9 @@ export function BandaDealuri() {
       <path d="M0 120 L0 86 C200 60 380 70 600 84 C820 98 1000 64 1200 70 C1320 74 1400 82 1440 86 L1440 120 Z" fill="#22384D" />
       <path d="M0 104 C360 86 1080 86 1440 102" stroke="#E5E9EE" strokeWidth="5" fill="none" />
       <path d="M0 116 C360 98 1080 98 1440 114" stroke="#7F93A8" strokeWidth="5" fill="none" />
-      <path d="M1200 28 L1218 56 L1182 56 Z M1200 44 L1224 76 L1176 76 Z M1200 60 L1230 96 L1170 96 Z" fill="var(--green)" />
-      <path d="M1252 48 L1266 70 L1238 70 Z M1252 60 L1270 86 L1234 86 Z M1252 72 L1274 100 L1230 100 Z" fill="var(--green-dark)" />
-      <path d="M110 42 L126 68 L94 68 Z M110 56 L132 86 L88 86 Z M110 70 L136 102 L84 102 Z" fill="var(--green-dark)" />
+      <path d="M1200 30 L1215 52 L1185 52 Z M1200 42 L1221 66 L1179 66 Z M1200 54 L1227 80 L1173 80 Z M1197 80 H1203 V89 H1197 Z" fill="var(--green)" />
+      <path d="M1252 50 L1263 66 L1241 66 Z M1252 58 L1268 76 L1236 76 Z M1252 66 L1272 87 L1232 87 Z M1250 87 H1254 V93 H1250 Z" fill="var(--green-dark)" />
+      <path d="M110 46 L124 66 L96 66 Z M110 56 L130 79 L90 79 Z M110 67 L135 92 L85 92 Z M107 92 H113 V99 H107 Z" fill="var(--green-dark)" />
     </svg>
   );
 }

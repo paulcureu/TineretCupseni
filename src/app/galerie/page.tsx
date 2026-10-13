@@ -69,7 +69,7 @@ export default function GaleriePage() {
               </span>
               <div className="album-card__body">
                 <span className="album-card__meta">Ianuarie 2027 · în curând</span>
-                <h2 className="h3">Ulița copilăriei — ediția de iarnă</h2>
+                <h2 className="h3">Ulița copilăriei: ediția de iarnă</h2>
                 <p>Vino la săniuș și la jocurile de iarnă, iar pozele apar aici după eveniment.</p>
                 <Link href="/activitati/ulita-copilariei" className="arrow-link">
                   Despre activitate <Icon name="sageata" size={18} />

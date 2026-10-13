@@ -71,9 +71,9 @@ export default function ImplicaPage() {
               <a href={site.social.facebook} target="_blank" rel="noopener noreferrer">
                 <Icon name="facebook" /> {site.nume}
               </a>
-              <span>
+              <a href={`mailto:${site.email}`}>
                 <Icon name="mail" /> {site.email}
-              </span>
+              </a>
             </div>
           </aside>
         </section>
@@ -85,12 +85,14 @@ export default function ImplicaPage() {
               {parteneri.map((p) => (
                 <li key={p.nume} className="partner-card">
                   <strong>{p.nume}</strong>
-                  <span>{p.contributie}</span>
+                  {p.contributie ? <span>{p.contributie}</span> : null}
                 </li>
               ))}
               <li className="partner-card partner-card--sun">
                 <strong>Locul tău e aici</strong>
-                <span>Vrei să susții o activitate din 2027? Scrie-ne la {site.email} sau pe Instagram.</span>
+                <span>
+                  Vrei să susții o activitate din 2027? Scrie-ne la <a href={`mailto:${site.email}`}>{site.email}</a> sau pe Instagram.
+                </span>
               </li>
             </ul>
           </div>

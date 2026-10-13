@@ -555,28 +555,30 @@ button {
   height: auto;
 }
 
+/* „Tineret” dă lățimea; literele din „CUPȘENI” se întind exact pe ea, ca în logo. */
 .logo__text {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+  font-size: 28px;
   line-height: 1;
 }
 
 .logo__tineret {
   font-family: var(--font-display-stack);
   font-weight: 400;
-  font-size: 28px;
+  font-size: 1em;
   letter-spacing: -0.01em;
   color: var(--white);
 }
 
 .logo__cupseni {
-  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.14em;
   font-family: var(--font-sub-stack);
   font-weight: 400;
-  font-size: 11.5px;
-  letter-spacing: 0.27em;
-  text-transform: uppercase;
+  font-size: 0.5em;
   color: var(--sun);
 }
 
@@ -617,7 +619,7 @@ button {
   .site-nav {
     display: none;
   }
-  .logo__tineret {
+  .logo__text {
     font-size: 25px;
   }
 }
@@ -649,12 +651,8 @@ button {
   max-width: 380px;
 }
 
-.site-footer__name .logo__tineret {
+.site-footer__name .logo__text {
   font-size: 34px;
-}
-
-.site-footer__name .logo__cupseni {
-  font-size: 13.5px;
 }
 
 .site-footer__anpc {
@@ -934,6 +932,13 @@ button {
   color: var(--white);
 }
 
+.hero__villages-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--on-navy-soft);
+  opacity: 0.6;
+}
+
 .hero__media {
   flex: 1 1 380px;
   min-width: 0;
@@ -1011,7 +1016,7 @@ button {
 
 .banda-dealuri {
   width: 100%;
-  height: 110px;
+  height: clamp(110px, 8.4vw, 220px);
   margin-top: 8px;
 }
 

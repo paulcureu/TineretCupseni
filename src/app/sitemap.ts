@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absolut(p),
       changeFrequency: "weekly" as const,
       priority: p === "/" ? 1 : 0.8,
-      images: p === "/" ? [absolut("/foto/grup/prima-intalnire-apus.jpg")] : undefined,
+      images: p === "/" ? [absolut("/foto/grup/grupul-de-initiativa.jpg")] : undefined,
     })),
     ...activitati.map((a) => ({ url: absolut(`/activitati/${a.slug}`), changeFrequency: "monthly" as const, priority: 0.6 })),
     ...albume.map((a) => ({

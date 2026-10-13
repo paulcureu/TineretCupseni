@@ -37,7 +37,7 @@ function html({ formular, subiect, campuri }: MesajFormular): string {
       (c) => `
         <tr>
           <td style="padding:10px 14px;border-bottom:1px solid #E3E5E8;color:#4E5B69;font-size:14px;width:34%;vertical-align:top">${escape(c.eticheta)}</td>
-          <td style="padding:10px 14px;border-bottom:1px solid #E3E5E8;color:#1A2E40;font-size:15px;white-space:pre-wrap">${escape(c.valoare || "—")}</td>
+          <td style="padding:10px 14px;border-bottom:1px solid #E3E5E8;color:#1A2E40;font-size:15px;white-space:pre-wrap">${escape(c.valoare || "(necompletat)")}</td>
         </tr>`,
     )
     .join("");
@@ -58,7 +58,7 @@ function html({ formular, subiect, campuri }: MesajFormular): string {
 }
 
 function text({ formular, subiect, campuri }: MesajFormular): string {
-  return [`${formular}: ${subiect}`, "", ...campuri.map((c) => `${c.eticheta}: ${c.valoare || "—"}`)].join("\n");
+  return [`${formular}: ${subiect}`, "", ...campuri.map((c) => `${c.eticheta}: ${c.valoare || "(necompletat)"}`)].join("\n");
 }
 
 /** Trimite conținutul unui formular pe e-mail. Folosit de toate formularele site-ului. */
@@ -72,7 +72,7 @@ export async function trimiteFormular(mesaj: MesajFormular): Promise<RezultatTri
 
   if (!cheie || destinatari.length === 0) {
     if (process.env.NODE_ENV === "development") {
-      console.info(`[${mesaj.formular} — Resend neconfigurat, doar în dezvoltare]`, text(mesaj));
+      console.info(`[${mesaj.formular}: Resend neconfigurat, doar în dezvoltare]`, text(mesaj));
       return { ok: true };
     }
     return { ok: false, motiv: "neconfigurat" };
