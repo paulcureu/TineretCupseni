@@ -61,7 +61,7 @@ export const activitati: Activitate[] = [
     editii: [
       {
         titlu: "Prima seară de film",
-        data: "28 septembrie 2026",
+        data: "26 septembrie 2026",
         text: "Ediția-pilot a avut loc la Theo Events, cu sprijinul autorităților locale. Ne bucurăm că ați fost alături de noi!",
         album: "seara-de-film",
       },

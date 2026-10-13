@@ -141,7 +141,7 @@ export const albume: Album[] = [
   {
     slug: "seara-de-film",
     titlu: "Prima seară de film",
-    data: "28 septembrie 2026",
+    data: "26 septembrie 2026",
     loc: "Theo Events",
     eveniment: true,
     descriere: "Ediția-pilot a Serilor tinerilor, la Theo Events, cu sprijinul autorităților locale.",

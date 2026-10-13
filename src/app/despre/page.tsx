@@ -21,7 +21,7 @@ export const metadata: Metadata = metadatePagina({
 const drum = [
   { gata: true, data: "Pensiunea Țara lui Pintea", titlu: "Prima întâlnire a grupului de inițiativă", text: "Ne-am adunat prima dată ca grup de inițiativă, la Pensiunea Țara lui Pintea din Cupșeni." },
   { gata: true, data: "20 septembrie 2026", titlu: "Întâlnirea cu tinerii din comună", text: "Ne-am întâlnit cu tinerii din comună pe Valea Pietrelor." },
-  { gata: true, data: "28 septembrie 2026", titlu: "Prima seară de film", text: "Ediția-pilot a Serilor tinerilor, la Theo Events, cu sprijinul autorităților locale." },
+  { gata: true, data: "26 septembrie 2026", titlu: "Prima seară de film", text: "Ediția-pilot a Serilor tinerilor, la Theo Events, cu sprijinul autorităților locale." },
   { gata: false, data: "Ianuarie 2027", titlu: "Întâlnirea de lansare „Cupșeni – Sat European de Tineret 2027”", text: "Prezentăm programul și chemăm tinerii din toate cele patru sate să se alăture." },
   { gata: false, data: "Decembrie 2027", titlu: "Evaluarea anului și planul tinerilor pentru 2028", text: "Ce am realizat, ce continuăm și ce propun tinerii pentru anul următor." },
 ];
@@ -59,7 +59,7 @@ export default function DesprePage() {
           <div className="split__side prose">
             <p>
               Ne-am strâns prima dată ca grup de inițiativă la Pensiunea Țara lui Pintea din Cupșeni. Pe 20 septembrie ne-am întâlnit cu
-              tinerii din comună pe Valea Pietrelor, iar pe 28 septembrie am organizat prima seară de film, cu copii și părinți în sală.
+              tinerii din comună pe Valea Pietrelor, iar pe 26 septembrie am organizat prima seară de film, cu copii și părinți în sală.
             </p>
             <p>
               Cu candidatura pentru Satul European de Tineret 2027 am ajuns în finală. Planul nostru: {activitati.length} de activități în 12
