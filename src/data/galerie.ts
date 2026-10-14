@@ -94,7 +94,6 @@ const fotoFilm: Foto[] = [
   vertical("/foto/film/seara-032.jpg", "Copii în spatele sălii"),
   orizontal("/foto/film/seara-042.jpg", "Sala de la Theo Events"),
   vertical("/foto/film/seara-039.jpg", "O tânără zâmbind la seara de film"),
-  orizontal("/foto/film/seara-044.jpg", "O tânără zâmbind spre cameră"),
   orizontal("/foto/film/seara-045.jpg", "Un tânăr în sală"),
   orizontal("/foto/film/seara-046.jpg", "Un grup de tinere în lumina colorată"),
   vertical("/foto/film/fb-1.jpg", "O fetiță zâmbind în lumina roz"),

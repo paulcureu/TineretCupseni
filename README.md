@@ -62,7 +62,7 @@ Fără cheie, în dezvoltare formularul apare doar în terminal, iar în produc�
 - `public/foto/tineri/` — întâlnirea cu tinerii din comună (20 septembrie 2026, Valea Pietrelor).
 - `public/anpc/` — pictogramele ANPC SAL și SOL din subsol (din `etamade-com/anpc-sal-sol-logo`, licență MIT).
 - `public/foto/intalnire/` — prima întâlnire a echipei (septembrie 2026), din folderul „Poze prima intalnire”.
-- `public/foto/film/` — prima seară de film (26 septembrie 2026): 30 de poze din folderul „Poze film” și 5 din postarea de pe Facebook.
+- `public/foto/film/` — prima seară de film (26 septembrie 2026): 29 de poze din folderul „Poze film”, 5 din postarea de pe Facebook și 3 trimise ulterior.
 - `public/foto/echipa/` — portretele grupului de inițiativă.
 - `public/foto/video-candidatura.jpg` — coperta filmului candidaturii (YouTube). Filmul se încarcă de pe youtube-nocookie.com abia când apeși play.
 - `public/sigle/` — siglele programului (din Anexa 3).
