@@ -4,7 +4,6 @@ import { PageShell } from "@/components/PageShell";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
-import { SatraLuiPintea } from "@/components/Peisaj";
 import { SectionHeader } from "@/components/ui";
 import { activitati } from "@/data/activitati";
 import { echipa } from "@/data/echipa";
@@ -150,9 +149,9 @@ export default function DesprePage() {
           </div>
         </section>
 
-        <section className="band band--navy band--clip" aria-labelledby="loc-titlu">
-          <div className="container section section--flush-bottom split split--bottom">
-            <div className="split__main stack section--pad-bottom">
+        <section className="band band--navy" aria-labelledby="loc-titlu">
+          <div className="container section split">
+            <div className="split__main stack">
               <span className="eyebrow text-sun">Locul nostru</span>
               <h2 id="loc-titlu" className="h2">
                 Ocrotiți de Șatra lui Pintea
@@ -165,9 +164,16 @@ export default function DesprePage() {
                 Vrem să ducem mai departe poveștile locului: la focul de tabără „Legende sub stele”, la șezători și la sărbătorile câmpenești.
               </p>
             </div>
-            <div className="split__side">
-              <SatraLuiPintea />
-            </div>
+            <figure className="split__side satra-foto">
+              <Image
+                src="/foto/grup/voluntarii-sub-satra.jpg"
+                alt="Grupul de inițiativă la apus, cu Șatra lui Pintea în spate"
+                width={1599}
+                height={900}
+                sizes="(max-width: 900px) 92vw, 560px"
+              />
+              <figcaption>Grupul de inițiativă, cu Șatra lui Pintea în spate</figcaption>
+            </figure>
           </div>
         </section>
       </>

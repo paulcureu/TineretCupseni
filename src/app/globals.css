@@ -387,6 +387,10 @@ button {
   color: var(--on-navy);
 }
 
+.eyebrow.text-sun {
+  color: var(--sun);
+}
+
 .eyebrow--on-green,
 .band--green .eyebrow {
   color: var(--on-green);
@@ -2320,9 +2324,23 @@ button {
   color: var(--muted);
 }
 
-.satra {
+.satra-foto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.satra-foto img {
   width: 100%;
   height: auto;
+  border-radius: var(--radius-lg);
+  border: 6px solid var(--white);
+}
+
+.satra-foto figcaption {
+  font-size: 14px;
+  color: var(--on-navy-soft);
 }
 
 /* --- Satul European ----------------------------------------------------- */
