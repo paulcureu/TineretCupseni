@@ -57,6 +57,16 @@ export default function DesprePage() {
           </div>
           <div className="split__side prose">
             <p>
+              Grupul nostru s-a format firesc, din inițiativa unor tineri care au crescut în aceeași comunitate și au simțit că a venit
+              momentul să se facă auziți. Deși venim din sate diferite, am descoperit că avem aceleași preocupări și aceeași dorință de a
+              construi ceva pentru generația noastră.
+            </p>
+            <p>
+              Nu pornim de la zero. Am ajutat la proiectul „Cetățeanul”, prin care s-a amenajat un traseu de cicloturism ce unește cele patru
+              sate, la două ediții ale competiției Hard Enduro și la „Fiii Satului”, „Sărbătoarea Comunei” și „Verjelul”. În fiecare an
+              suntem și voluntari în tabăra creștină pentru copii.
+            </p>
+            <p>
               Ne-am strâns prima dată ca grup de inițiativă la Pensiunea Țara Li Pintea din Cupșeni. Pe 20 septembrie ne-am întâlnit cu
               tinerii din comună pe Valea Pietrelor, iar pe 26 septembrie am organizat prima seară de film, cu copii și părinți în sală.
             </p>
@@ -66,6 +76,7 @@ export default function DesprePage() {
             </p>
             <p>
               În grupul de inițiativă suntem acum {echipa.length} tineri, iar ușa rămâne deschisă oricui din comună vrea să ni se alăture.
+              Credem că nicio decizie care îi privește pe tineri nu ar trebui luată fără tineri.
             </p>
           </div>
         </section>

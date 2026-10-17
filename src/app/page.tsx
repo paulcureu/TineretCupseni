@@ -330,7 +330,7 @@ export default function AcasaPage() {
               <Image src="/foto/film/seara-039.jpg" alt="O tânără zâmbind la seara de film" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
             </li>
             <li>
-              <Image src="/foto/intalnire/portret-06b.jpg" alt="Alexandra Podina, în pădurea de mesteceni" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
+              <Image src="/foto/intalnire/portret-06b.jpg" alt="Alexandra Podină, în pădurea de mesteceni" width={900} height={1600} sizes="(max-width: 900px) 50vw, 300px" />
             </li>
           </MobileCarousel>
         </section>

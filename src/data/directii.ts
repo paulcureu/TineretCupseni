@@ -1,8 +1,8 @@
 import type { IconName } from "@/components/Icon";
 
 // Cele 7 schimbări (S1–S7) din Anexa 3. Codurile vin din anexă;
-// numele scurte sunt alese pentru site. `formulare` descrie schimbarea pe baza activităților
-// din anexă; se poate înlocui cu formularea oficială din Fișa 3 a candidaturii.
+// numele scurte sunt alese pentru site. `formulare` vine din Fișa 3 a formularului de
+// candidatură (schimbarea dorită), potrivită pe direcțiile din Anexa 3.
 
 export type DirectieId = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7";
 
@@ -20,7 +20,7 @@ export const directii: Directie[] = [
     id: "s1",
     cod: "S1",
     nume: "Leadership & implicare",
-    formulare: "Tinerii din cele patru sate învață să conducă: se întâlnesc lunar ca grup de inițiativă, trec prin ateliere de leadership, management de proiect și comunicare și ajung de la participanți la organizatori.",
+    formulare: "Ne dorim un grup de tineri unit, activ și bine organizat, care se întâlnește constant și transformă ideile de pe foaie în realitate. Un grup stabil, care să nu se oprească după finalul proiectului, ci să atragă generații noi de tineri și să devină o voce în dezvoltarea comunității.",
     icon: "oameni",
     culori: { fundal: "#E1E7F2", text: "#1A2E40", punct: "#1A2E40", palid: "#F1F4F9" },
   },
@@ -28,7 +28,7 @@ export const directii: Directie[] = [
     id: "s2",
     cod: "S2",
     nume: "Tradiții & cultură",
-    formulare: "Tradițiile Țării Lăpușului merg mai departe prin tineri: ateliere de meșteșuguri, rețete transmise între generații și clubul de carte și dialog.",
+    formulare: "Vrem să facem cultura locală mai prezentă în viața tinerilor, prin activități în care aceștia să învețe direct de la oamenii din cele patru sate: sculptură, olărit, cusut, țesut la război, șezătoare sau încondeierea ouălor.",
     icon: "motiv",
     culori: { fundal: "#F8E3DA", text: "#8A3A1C", punct: "#C2532A", palid: "#FCF3EF" },
   },
@@ -36,7 +36,7 @@ export const directii: Directie[] = [
     id: "s3",
     cod: "S3",
     nume: "Abilități pentru viață",
-    formulare: "Tinerii capătă abilități de care au nevoie în viață: prim ajutor, educație financiară, antreprenoriat și muzică.",
+    formulare: "Ne dorim o generație de tineri informați, responsabili din punct de vedere financiar și motivați să își construiască un viitor activ în propria comunitate, pregătiți să acționeze corect în situații de urgență și deschiși către genuri muzicale noi.",
     icon: "bec",
     culori: { fundal: "#FDEBD0", text: "#7A4300", punct: "#E08A1E", palid: "#FEF7EC" },
   },
@@ -44,7 +44,7 @@ export const directii: Directie[] = [
     id: "s4",
     cod: "S4",
     nume: "Sport & natură",
-    formulare: "Tinerii fac mișcare împreună și descoperă natura din jurul comunei: cros, ture pe două roți, drumeții și Cupa celor 4 sate la fotbal.",
+    formulare: "Ne dorim o comunitate rurală activă, în care sportul să devină o rutină accesibilă și atractivă pentru tinerii din toate cele 4 sate, fără ca aceștia să fie nevoiți să se deplaseze la oraș.",
     icon: "munte",
     culori: { fundal: "#E3EFE5", text: "#1E3F1A", punct: "#2D5A27", palid: "#F1F7F2" },
   },
@@ -52,7 +52,7 @@ export const directii: Directie[] = [
     id: "s5",
     cod: "S5",
     nume: "Timp liber împreună",
-    formulare: "Tinerii au, lună de lună, prilejuri să-și petreacă timpul liber împreună: seri de film și jocuri, foc de tabără, sărbători câmpenești, picnicul comunei și Noaptea Perseidelor.",
+    formulare: "Ne dorim ca tinerii din comunitate să aibă opțiuni diverse și atractive de petrecere a timpului liber, să se reconecteze la identitatea și tradițiile locale și să devină cetățeni activi, implicați în viața satului.",
     icon: "stea",
     culori: { fundal: "#ECE5F6", text: "#4B2A7B", punct: "#6B45A8", palid: "#F6F2FB" },
   },
@@ -60,7 +60,7 @@ export const directii: Directie[] = [
     id: "s6",
     cod: "S6",
     nume: "Solidaritate & târguri",
-    formulare: "Tinerii se implică pentru ceilalți: campanii de donare de sânge și târgurile de toamnă și de Crăciun ale comunei.",
+    formulare: "Vrem să trecem de la ideea că fiecare își vede doar de propriile probleme la sentimentul că, atunci când ne unim, putem face lucruri frumoase și importante pentru cei din jur.",
     icon: "inima",
     culori: { fundal: "#F5E3E3", text: "#7E2122", punct: "#9E2A2B", palid: "#FBF1F1" },
   },
@@ -68,7 +68,7 @@ export const directii: Directie[] = [
     id: "s7",
     cod: "S7",
     nume: "Mediu",
-    formulare: "Tinerii au grijă de natura din comună: plantări și campanii de ecologizare.",
+    formulare: "Ne dorim o comunitate mai curată, responsabilă și educată din punct de vedere ecologic, în care tinerii devin veriga principală a schimbării și „ambasadori ai mediului” în propriile familii.",
     icon: "frunza",
     culori: { fundal: "#DDF0EE", text: "#165A55", punct: "#24877F", palid: "#EFF8F7" },
   },
