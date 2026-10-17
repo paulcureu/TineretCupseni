@@ -63,8 +63,8 @@ export const parteneri: { nume: string; contributie?: string }[] = [
 ];
 
 export const sate = [
-  { nume: "Cupșeni", eticheta: "reședința comunei", text: "[O frază despre sat: un loc, un om, o tradiție.]" },
-  { nume: "Costeni", eticheta: "", text: "[O frază despre sat: un loc, un om, o tradiție.]" },
-  { nume: "Libotin", eticheta: "", text: "[O frază despre sat: un loc, un om, o tradiție.]" },
-  { nume: "Ungureni", eticheta: "", text: "[O frază despre sat: un loc, un om, o tradiție.]" },
+  { nume: "Cupșeni", eticheta: "reședința comunei", text: "Reședința comunei, cu două biserici vechi de lemn: Sfinții Arhangheli și Sfântul Ilie." },
+  { nume: "Costeni", eticheta: "", text: "Satul cu biserica de lemn a Sfinților Apostoli." },
+  { nume: "Libotin", eticheta: "", text: "Satul prin care curge râul Rotunda, unde se varsă pârâul Șatra, coborât din Munții Lăpușului." },
+  { nume: "Ungureni", eticheta: "", text: "Al patrulea sat al comunei, cu propria biserică veche de lemn." },
 ] as const;

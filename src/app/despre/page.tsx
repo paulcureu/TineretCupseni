@@ -64,7 +64,9 @@ export default function DesprePage() {
               Cu candidatura pentru Satul European de Tineret 2027 am ajuns în finală. Planul nostru: {activitati.length} de activități în 12
               luni, gândite pentru toate cele patru sate.
             </p>
-            <p className="muted">[Completați: cine a avut ideea, câți tineri sunt în grup, ce vă leagă de comună.]</p>
+            <p>
+              În grupul de inițiativă suntem acum {echipa.length} tineri, iar ușa rămâne deschisă oricui din comună vrea să ni se alăture.
+            </p>
           </div>
         </section>
 
