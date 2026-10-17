@@ -14,8 +14,8 @@ export function SiteFooter() {
             <Logo marime={64} />
           </div>
           <p>
-            Grupul de inițiativă al tinerilor din {site.sate.slice(0, -1).join(", ")} și {site.sate.at(-1)}, din Țara
-            Lăpușului, județul Maramureș.
+            {site.numeScurt} este grupul de inițiativă al tinerilor din {site.sate.slice(0, -1).join(", ")} și {site.sate.at(-1)}, din
+            Țara Lăpușului, județul Maramureș.
           </p>
           <SocialLinks varianta="iconite" />
         </div>

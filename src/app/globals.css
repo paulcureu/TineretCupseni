@@ -22,7 +22,7 @@
   --ink: #1A2E40;
   --ink-2: #2B3B4C;
   --muted: #4E5B69;
-  --muted-2: #8794A3;
+  --muted-2: #66737F;
   --line: #E3E5E8;
   --line-2: #D5D9DE;
   --on-navy: #C9D1DA;
@@ -1989,7 +1989,7 @@ button {
   padding: 14px 6px;
   border-radius: 14px;
   background: var(--navy-2);
-  color: #93A2B3;
+  color: #AEBAC7;
   text-align: center;
   font-weight: 700;
 }
@@ -2843,11 +2843,12 @@ button {
 
 /* --- Schelet de încărcare ----------------------------------------------- */
 
+/* Cât o pagină întreagă, ca subsolul să nu sară în sus și în jos cât se încarcă conținutul. */
 .skeleton {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 60vh;
+  min-height: 100vh;
 }
 
 .skeleton__line,
@@ -3655,6 +3656,13 @@ p,
   }
 }
 
+/* Textul de sus doar urcă, fără să pornească invizibil: se vede din prima clipă (și pentru Google). */
+@keyframes ridica-text {
+  from {
+    transform: translateY(14px);
+  }
+}
+
 @keyframes rasare {
   from {
     opacity: 0;
@@ -3674,7 +3682,7 @@ p,
   .page-hero__inner > * > *,
   .page-hero__inner > .logo-card,
   .page-hero__inner > .mini-stats {
-    animation: ridica 0.8s var(--ease-out) both;
+    animation: ridica-text 0.8s var(--ease-out) both;
   }
   .hero__text > :nth-child(2),
   .page-hero__inner > * > :nth-child(2) {

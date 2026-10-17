@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { AlbumGrid } from "@/components/AlbumGrid";
 import { Icon } from "@/components/Icon";
-import { PageSkeleton } from "@/components/ui";
 import { getActivitate } from "@/data/activitati";
 import { albume, detaliiAlbum, getAlbum } from "@/data/galerie";
 import { cuNumar } from "@/lib/luni";
@@ -27,12 +25,11 @@ export async function generateMetadata(props: PageProps<"/galerie/[album]">): Pr
   });
 }
 
+// Albumele sunt cunoscute la build (generateStaticParams), așa că pagina se generează întreagă dinainte.
 export default function AlbumPage(props: PageProps<"/galerie/[album]">) {
   return (
     <PageShell>
-      <Suspense fallback={<PageSkeleton />}>
-        <Album params={props.params} />
-      </Suspense>
+      <Album params={props.params} />
     </PageShell>
   );
 }

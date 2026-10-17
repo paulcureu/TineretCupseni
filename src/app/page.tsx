@@ -19,7 +19,7 @@ import { cuNumar, LUNI, pluralActivitati } from "@/lib/luni";
 import { absolut, metadatePagina } from "@/lib/seo";
 
 export const metadata: Metadata = metadatePagina({
-  titlu: `${site.nume} · Satul European de Tineret 2027`,
+  titlu: site.titluAcasa,
   descriere: site.descriere,
   cale: "/",
 });
@@ -29,8 +29,8 @@ const organizatie = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": absolut("/#organizatie"),
-  name: site.nume,
-  alternateName: site.numeScurt,
+  name: site.numeScurt,
+  alternateName: [site.nume, ...site.alteNume],
   url: absolut("/"),
   logo: absolut("/brand/logo-512.png"),
   image: absolut("/foto/grup/grupul-de-initiativa.jpg"),
@@ -47,10 +47,30 @@ const siteWeb = {
   "@type": "WebSite",
   "@id": absolut("/#site"),
   url: absolut("/"),
-  name: site.nume,
-  alternateName: site.numeScurt,
+  name: site.numeScurt,
+  alternateName: [site.nume, ...site.alteNume],
   inLanguage: "ro-RO",
   publisher: { "@id": absolut("/#organizatie") },
+};
+
+// Pagina de start, cu poza pe care Google o poate arăta lângă rezultat.
+const paginaAcasa = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": absolut("/#pagina"),
+  url: absolut("/"),
+  name: site.titluAcasa,
+  description: site.descriere,
+  inLanguage: "ro-RO",
+  isPartOf: { "@id": absolut("/#site") },
+  about: { "@id": absolut("/#organizatie") },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: absolut("/foto/grup/grupul-de-initiativa.jpg"),
+    width: 2000,
+    height: 1126,
+    caption: "Grupul de inițiativă Tineret Cupșeni, la Pensiunea Țara Li Pintea",
+  },
 };
 
 // Câte un moment de reper pentru fiecare lună din 2027.
@@ -73,7 +93,7 @@ export default function AcasaPage() {
   return (
     <PageShell>
       <>
-        <JsonLd date={[organizatie, siteWeb]} />
+        <JsonLd date={[organizatie, siteWeb, paginaAcasa]} />
         <section className="hero" aria-labelledby="hero-titlu">
           <div className="container hero__inner">
             <div className="hero__text">

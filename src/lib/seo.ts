@@ -26,7 +26,7 @@ export function metadatePagina({ titlu, descriere, cale }: Pagina): Metadata {
     openGraph: {
       type: "website",
       locale: "ro_RO",
-      siteName: site.nume,
+      siteName: site.numeScurt,
       url: cale,
       title: titluSocial,
       description: descriere,

@@ -4,9 +4,8 @@ import { PageShell } from "@/components/PageShell";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { Icon } from "@/components/Icon";
-import { ActivityCard, DirectieChip, PageSkeleton } from "@/components/ui";
+import { ActivityCard, DirectieChip } from "@/components/ui";
 import { activitati, getActivitate } from "@/data/activitati";
 import { getDirectie } from "@/data/directii";
 import { getAlbum } from "@/data/galerie";
@@ -30,12 +29,12 @@ export async function generateMetadata(props: PageProps<"/activitati/[slug]">): 
   });
 }
 
+// Toate activitățile sunt cunoscute la build (generateStaticParams), așa că pagina se
+// generează întreagă dinainte, fără schelet de încărcare.
 export default function ActivitatePage(props: PageProps<"/activitati/[slug]">) {
   return (
     <PageShell>
-      <Suspense fallback={<PageSkeleton />}>
-        <Activitate params={props.params} />
-      </Suspense>
+      <Activitate params={props.params} />
     </PageShell>
   );
 }

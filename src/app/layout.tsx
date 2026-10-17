@@ -28,7 +28,7 @@ const text = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.nume} · Satul European de Tineret 2027`,
+    default: site.titluAcasa,
     template: `%s · ${site.numeScurt}`,
   },
   description: site.descriere,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ro_RO",
-    siteName: site.nume,
+    siteName: site.numeScurt,
   },
   appleWebApp: {
     title: site.numeScurt,

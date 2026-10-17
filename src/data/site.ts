@@ -5,8 +5,11 @@ export const site = {
   nume: "Tinerii din comuna Cupșeni",
   numeScurt: "Tineret Cupșeni",
   slogan: "4 sate, o singură comunitate",
+  // Numele după care ne caută oamenii pe Google (pentru datele structurate ale site-ului).
+  alteNume: ["Tinerii din Cupșeni", "Tineret Cupseni"],
+  titluAcasa: "Tineret Cupșeni · Tinerii din comuna Cupșeni, Maramureș",
   descriere:
-    "Grupul de inițiativă al tinerilor din Cupșeni, Costeni, Libotin și Ungureni. Finaliști Satul European de Tineret 2027, cu 33 de activități pentru tot anul.",
+    "Tineret Cupșeni: tinerii din comuna Cupșeni, Maramureș (Cupșeni, Costeni, Libotin, Ungureni). Finaliști Sat European de Tineret 2027, cu 33 de activități.",
   // Adresa publică. Se poate schimba din NEXT_PUBLIC_SITE_URL (de ex. după ce aveți un domeniu .ro).
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://tineret-cupseni.vercel.app",
   email: "tineret.cupseni@gmail.com",
