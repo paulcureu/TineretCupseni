@@ -65,7 +65,7 @@ const fotoPortrete: Foto[] = [
   vertical("/foto/echipa/cosmina-buda.jpg", "Cosmina Buda"),
   vertical("/foto/echipa/ioana-bude.jpg", "Ioana Bude"),
   vertical("/foto/echipa/ionut-butcure.jpg", "Ionuț Butcure"),
-  vertical("/foto/echipa/iulia-heres.jpg", "Iulia Hereș"),
+  vertical("/foto/echipa/iulia-heres-2.jpg", "Iulia Hereș"),
   vertical("/foto/intalnire/portret-02b.jpg", "Andrea Buda, pe deal"),
   vertical("/foto/intalnire/portret-03b.jpg", "Ioana Bude, pe un deal însorit"),
   vertical("/foto/intalnire/portret-04b.jpg", "Ionuț Butcure, în iarba înaltă"),

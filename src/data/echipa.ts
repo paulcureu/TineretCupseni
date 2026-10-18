@@ -30,6 +30,6 @@ export const echipa: Membru[] = [
   portret("Cosmina Buda", "cosmina-buda", "50% 26%", "Logistică, tehnică și sunet"),
   portret("Ioana Bude", "ioana-bude", "50% 34%", "Ateliere culturale și educaționale"),
   portret("Ionuț Butcure", "ionut-butcure", "50% 38%", "Activități pentru tineri și ecologizare"),
-  portret("Iulia Hereș", "iulia-heres", "50% 28%", "Tradiții, gastronomie și târguri"),
+  portret("Iulia Hereș", "iulia-heres-2", "50% 28%", "Tradiții, gastronomie și târguri"),
   { nume: "Rareș Cureu", rol: "Comunicare și social media", foto: "/foto/echipa/rares-cureu.jpg", w: 720, h: 1126, pozitie: "50% 62%" },
 ];
