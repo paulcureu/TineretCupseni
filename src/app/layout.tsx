@@ -81,7 +81,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             Sari la conținut
           </a>
           <SiteHeader />
-          <main id="continut">{children}</main>
+          <main id="continut" tabIndex={-1}>
+            {children}
+          </main>
           <SiteFooter />
           <Suspense fallback={null}>
             <MobileMenu />

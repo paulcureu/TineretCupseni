@@ -8,10 +8,24 @@ import { Icon } from "./Icon";
 
 const STARE_INITIALA: StareFormular = { stare: "initial", valori: { nume: "", varsta: "", sat: "", contact: "", interese: ["s5"], mesaj: "" } };
 
+// Numele câmpurilor, pentru rezumatul erorilor (fiecare rând duce la câmpul lui).
+const ETICHETE: Record<"nume" | "contact" | "acord", string> = { nume: "Nume și prenume", contact: "Date de contact", acord: "Acordul" };
+
+/** Mesaj de eroare sub câmp: pictogramă + text, nu doar culoare. */
+function EroareCamp({ id, children }: { id: string; children: string }) {
+  return (
+    <span id={id} className="field__error">
+      <Icon name="atentie" size={16} />
+      {children}
+    </span>
+  );
+}
+
 export function VolunteerForm() {
   const [stare, actiune, seTrimite] = useActionState(trimiteInscriere, STARE_INITIALA);
   const mesajRef = useRef<HTMLDivElement>(null);
   const v = stare.valori ?? STARE_INITIALA.valori!;
+  const erori = Object.entries(stare.erori ?? {}) as [keyof typeof ETICHETE, string][];
 
   useEffect(() => {
     if (stare.stare !== "initial") mesajRef.current?.focus();
@@ -46,15 +60,27 @@ export function VolunteerForm() {
 
       {stare.stare === "eroare" ? (
         <div className="form-alert" role="alert" tabIndex={-1} ref={mesajRef}>
-          {stare.mesaj}
+          <span className="form-alert__title">
+            <Icon name="atentie" size={20} />
+            {stare.mesaj}
+          </span>
+          {erori.length > 0 ? (
+            <ul>
+              {erori.map(([camp, text]) => (
+                <li key={camp}>
+                  <a href={`#${camp}`}>{ETICHETE[camp]}</a>: {text}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       ) : null}
 
       <div className="form__row">
         <div className="field field--grow">
           <label htmlFor="nume">Nume și prenume *</label>
-          <input id="nume" name="nume" type="text" autoComplete="name" defaultValue={v.nume} aria-invalid={!!stare.erori?.nume} aria-describedby={stare.erori?.nume ? "nume-eroare" : undefined} />
-          {stare.erori?.nume ? <span id="nume-eroare" className="field__error">{stare.erori.nume}</span> : null}
+          <input id="nume" name="nume" type="text" autoComplete="name" defaultValue={v.nume} aria-required="true" aria-invalid={!!stare.erori?.nume} aria-describedby={stare.erori?.nume ? "nume-eroare" : undefined} />
+          {stare.erori?.nume ? <EroareCamp id="nume-eroare">{stare.erori.nume}</EroareCamp> : null}
         </div>
         <div className="field field--small">
           <label htmlFor="varsta">Vârsta</label>
@@ -77,8 +103,20 @@ export function VolunteerForm() {
         </div>
         <div className="field field--grow">
           <label htmlFor="contact">Telefon, Instagram sau e-mail *</label>
-          <input id="contact" name="contact" type="text" placeholder="07xx xxx xxx, @utilizator sau e-mail" defaultValue={v.contact} aria-invalid={!!stare.erori?.contact} aria-describedby={stare.erori?.contact ? "contact-eroare" : undefined} />
-          {stare.erori?.contact ? <span id="contact-eroare" className="field__error">{stare.erori.contact}</span> : null}
+          <input
+            id="contact"
+            name="contact"
+            type="text"
+            autoComplete="on"
+            defaultValue={v.contact}
+            aria-required="true"
+            aria-invalid={!!stare.erori?.contact}
+            aria-describedby={["contact-ajutor", stare.erori?.contact ? "contact-eroare" : null].filter(Boolean).join(" ")}
+          />
+          <span id="contact-ajutor" className="field__hint">
+            Oricare dintre ele, cum îți e mai ușor: 07xx xxx xxx, @utilizator sau o adresă de e-mail.
+          </span>
+          {stare.erori?.contact ? <EroareCamp id="contact-eroare">{stare.erori.contact}</EroareCamp> : null}
         </div>
       </div>
 
@@ -101,10 +139,10 @@ export function VolunteerForm() {
 
       <div className="field">
         <label className="consent">
-          <input type="checkbox" name="acord" value="da" aria-invalid={!!stare.erori?.acord} aria-describedby={stare.erori?.acord ? "acord-eroare" : undefined} />
+          <input id="acord" type="checkbox" name="acord" value="da" aria-required="true" aria-invalid={!!stare.erori?.acord} aria-describedby={stare.erori?.acord ? "acord-eroare" : undefined} />
           <span>Sunt de acord să fiu contactat(ă) de echipa {site.numeScurt}. Dacă am sub 16 ani, un părinte știe și este de acord. *</span>
         </label>
-        {stare.erori?.acord ? <span id="acord-eroare" className="field__error">{stare.erori.acord}</span> : null}
+        {stare.erori?.acord ? <EroareCamp id="acord-eroare">{stare.erori.acord}</EroareCamp> : null}
       </div>
 
       <div>

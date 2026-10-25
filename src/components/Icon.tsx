@@ -32,6 +32,7 @@ const paths = {
   bifa: "M5 12l5 5L20 7",
   casa: "M3 9l9-6 9 6v11H3zM9 20v-6h6v6",
   poza: "M3 5h18v14H3zM9 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM21 16l-5-5-8 8",
+  atentie: "M12 9v4M12 17h.01M10.3 3.9 2.6 17.3A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.7L13.7 3.9a2 2 0 0 0-3.4 0z",
 } as const;
 
 export type IconName = keyof typeof paths;

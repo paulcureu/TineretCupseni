@@ -158,14 +158,46 @@ export default function AcasaPage() {
           <StatTile numar={directii.length}>direcții de schimbare</StatTile>
         </section>
 
-        <section className="section container stack-lg" aria-labelledby="video-titlu">
+        {/* Dovada că suntem reali vine înaintea planurilor: evenimente deja ținute, cu poze și date. */}
+        <section className="section container stack-lg" aria-labelledby="inceput-titlu">
           <SectionHeader
-            id="video-titlu"
-            eyebrow="Candidatura în imagini"
-            title="Echipa și proiectul, în filmul candidaturii"
-            lead="Filmul cu care comuna Cupșeni a candidat la titlul de Sat European de Tineret 2027, alături de grupul nostru de inițiativă."
+            id="inceput-titlu"
+            eyebrow="Toamna lui 2026"
+            title="Am început deja"
+            lead="Primele întâlniri și prima seară de film au avut loc. Fiecare eveniment are albumul lui."
+            action={<ArrowLink href="/galerie">Toate albumele</ArrowLink>}
           />
-          <VideoYouTube {...site.videoCandidatura} />
+          <div className="story-grid">
+            {evenimente.map((album) => (
+              <Link key={album.slug} href={`/galerie/${album.slug}`} className="story-card" transitionTypes={["nav-forward"]}>
+                <div className="story-card__photos">
+                  {album.foto.slice(0, 3).map((f, i) => (
+                    <Image key={f.src} src={f.src} alt={f.alt} width={f.w} height={f.h} sizes={i === 0 ? "(max-width: 900px) 60vw, 300px" : "(max-width: 900px) 30vw, 150px"} />
+                  ))}
+                </div>
+                <div className="story-card__body">
+                  <span className="story-card__date">{detaliiAlbum(album)}</span>
+                  <h3 className="h3">{album.titlu}</h3>
+                  <p>{album.descriere}</p>
+                  <span className="arrow-link">
+                    Vezi albumul · {cuNumar(album.foto.length, "fotografie", "fotografii")} <Icon name="sageata" size={18} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="band band--sky" aria-labelledby="video-titlu">
+          <div className="section container stack-lg">
+            <SectionHeader
+              id="video-titlu"
+              eyebrow="Candidatura în imagini"
+              title="Echipa și proiectul, în filmul candidaturii"
+              lead="Filmul cu care comuna Cupșeni a candidat la titlul de Sat European de Tineret 2027, alături de grupul nostru de inițiativă."
+            />
+            <VideoYouTube {...site.videoCandidatura} />
+          </div>
         </section>
 
         <section className="section container stack-lg" aria-labelledby="an-titlu">
@@ -200,31 +232,6 @@ export default function AcasaPage() {
               );
             })}
           </MobileCarousel>
-        </section>
-
-        <section className="band band--sky" aria-labelledby="inceput-titlu">
-          <div className="section container stack-lg">
-            <SectionHeader id="inceput-titlu" eyebrow="Toamna lui 2026" title="Am început deja" />
-            <div className="story-grid">
-              {evenimente.map((album) => (
-                <Link key={album.slug} href={`/galerie/${album.slug}`} className="story-card" transitionTypes={["nav-forward"]}>
-                  <div className="story-card__photos">
-                    {album.foto.slice(0, 3).map((f, i) => (
-                      <Image key={f.src} src={f.src} alt={f.alt} width={f.w} height={f.h} sizes={i === 0 ? "(max-width: 900px) 60vw, 300px" : "(max-width: 900px) 30vw, 150px"} />
-                    ))}
-                  </div>
-                  <div className="story-card__body">
-                    <span className="story-card__date">{detaliiAlbum(album)}</span>
-                    <h3 className="h3">{album.titlu}</h3>
-                    <p>{album.descriere}</p>
-                    <span className="arrow-link">
-                      Vezi albumul · {cuNumar(album.foto.length, "fotografie", "fotografii")} <Icon name="sageata" size={18} />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section className="section container stack-lg" aria-labelledby="directii-titlu">

@@ -57,7 +57,7 @@ Fără cheie, în dezvoltare formularul apare doar în terminal, iar în produc�
 
 ## Poze
 
-- `public/brand/` — simbolul din logo (din folderul de branding). Paleta și fonturile sunt în `src/app/globals.css` (`--navy`, `--sun`, `--green`, `--red`, `--paper`; Times New Roman pentru titluri, Poppins pentru text).
+- `public/brand/` — simbolul din logo (din folderul de branding). Paleta și fonturile sunt în `src/app/globals.css`, ca token-uri semantice (`--color-primary`, `--color-accent`, `--space-*`, `--text-*`, `--shadow-*`); Times New Roman pentru titluri, Poppins pentru text. Sistemul de design e descris în `design-system/tineret-cupseni/MASTER.md`.
 - `public/foto/grup/` — prima întâlnire a grupului de inițiativă (Pensiunea Țara Li Pintea).
 - `public/foto/tineri/` — întâlnirea cu tinerii din comună (20 septembrie 2026, Valea Pietrelor).
 - `public/anpc/` — pictogramele ANPC SAL și SOL din subsol (din `etamade-com/anpc-sal-sol-logo`, licență MIT).
